@@ -9,6 +9,15 @@
     <VendorId>RBA Inc</VendorId>
     <VendorDescription>Tom E Flaherty, RBA Inc</VendorDescription>
   </AddIn>
+  <AddIn Type="Command">
+    <Text>Check Parts</Text>
+    <Description>Some description for StoneDocuments_r24_1</Description>
+    <Assembly>StoneDocuments_r24_1.dll</Assembly>
+    <FullClassName>StoneDocuments_r24_1.cmdCheck</FullClassName>
+    <ClientId>9D6F46A4-AFCD-46AE-AE88-23FD69ECAD60</ClientId>
+    <VendorId>RBA Inc</VendorId>
+    <VendorDescription>Tom E Flaherty, RBA Inc</VendorDescription>
+  </AddIn>
   <AddIn Type="Application">
     <Name>Application StoneDocuments_r24_1</Name>
     <Assembly>StoneDocuments_r24_1.dll</Assembly>

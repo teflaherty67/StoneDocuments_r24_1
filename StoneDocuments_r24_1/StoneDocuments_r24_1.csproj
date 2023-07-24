@@ -60,7 +60,11 @@
     <Compile Include="App.cs" />
     <Compile Include="Classes\clsButtonDataClass.cs" />
     <Compile Include="Classes\clsSheetData.cs" />
+    <Compile Include="Commands\cmdCheck.cs" />
     <Compile Include="Commands\cmdSheetMaker.cs" />
+    <Compile Include="Forms\frmCheck.xaml.cs">
+      <DependentUpon>frmCheck.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -85,6 +89,10 @@
     <EmbeddedResource Include="Resources\Blue_16.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Forms\frmCheck.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Forms\frmSheetMaker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
