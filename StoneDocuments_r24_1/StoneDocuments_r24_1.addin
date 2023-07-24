@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command StoneDocuments_r24_1</Text>
+    <Description>Some description for StoneDocuments_r24_1</Description>
+    <Assembly>StoneDocuments_r24_1.dll</Assembly>
+    <FullClassName>StoneDocuments_r24_1.cmdSheetMaker</FullClassName>
+    <ClientId>cfe3b5d5-7770-4a14-a5be-316fd2a08acc</ClientId>
+    <VendorId>RBA Inc</VendorId>
+    <VendorDescription>Tom E Flaherty, RBA Inc</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application StoneDocuments_r24_1</Name>
+    <Assembly>StoneDocuments_r24_1.dll</Assembly>
+    <FullClassName>StoneDocuments_r24_1.App</FullClassName>
+    <ClientId>813eb2cf-0bc4-463e-b9f8-624f6eece3c2</ClientId>
+    <VendorId>RBA Inc</VendorId>
+    <VendorDescription>Tom E Flaherty, RBA Inc</VendorDescription>
+  </AddIn>
+</RevitAddIns>
