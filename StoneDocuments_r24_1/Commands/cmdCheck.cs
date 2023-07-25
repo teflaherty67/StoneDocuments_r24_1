@@ -62,24 +62,20 @@ namespace StoneDocuments_r24_1
             uidoc.Selection.SetElementIds(elemIdList);
 
             // open form
-            frmCheck curForm = new frmCheck()
+
+            // create handler and event then open form
+            RequestHandler handler = new RequestHandler();
+            ExternalEvent exEvent = ExternalEvent.Create(handler);
+            CancelHandler cHandler = new CancelHandler();
+            ExternalEvent cEvent = ExternalEvent.Create(cHandler);
+
+            frmCheck curForm = new frmCheck(exEvent, handler, cHandler, cEvent, elemList.Count)
             {
                 Width = 800,
                 Height = 450,
                 WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
                 Topmost = true,
             };
-
-            //// create handler and event then open form
-            //RequestHandler handler = new RequestHandler();
-            //ExternalEvent exEvent = ExternalEvent.Create(handler);
-            //CancelHandler cHandler = new CancelHandler();
-            //ExternalEvent cEvent = ExternalEvent.Create(cHandler);
-
-
-            //frmCheck curForm = new frmCheck(exEvent, handler, cHandler, cEvent, elemList.Count);
-            //curForm.TopMost = true;
-            //curForm.Show();
 
             return Result.Succeeded;
         }
