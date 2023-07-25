@@ -20,7 +20,7 @@ namespace StoneDocuments_r24_1
             // 1. Create ribbon tab
             try
             {
-                app.CreateRibbonTab("Revit Add-in Academy");
+                app.CreateRibbonTab("Stone Documents");
             }
             catch (Exception)
             {
@@ -28,13 +28,20 @@ namespace StoneDocuments_r24_1
             }
 
             // 2. Create ribbon panel 
-            RibbonPanel panel = Utils.CreateRibbonPanel(app, "Revit Add-in Academy", "Revit Tools");
+            RibbonPanel panel01 = Utils.CreateRibbonPanel(app, "Stone Documents", "Parts");
+            RibbonPanel panel02 = Utils.CreateRibbonPanel(app, "Stone Documents", "Sheets");
 
             // 3. Create button data instances
-            clsButtonDataClass myButtonData = new clsButtonDataClass("btnStoneDocuments_r24_1", "My Button", cmdSheetMaker.GetMethod(), Properties.Resources.Blue_32, Properties.Resources.Blue_16, "This is a tooltip");
+            clsButtonDataClass btnCheck = new clsButtonDataClass("btnStoneDocuments_r24_1",
+                "Check\rParts", cmdSheetMaker.GetMethod(), Properties.Resources.Check_32,
+                Properties.Resources.Check_16, "Check parts by schedule and override surface foreground color.");
+            clsButtonDataClass btnReset = new clsButtonDataClass("btnStoneDocuments_r24_1",
+                "Reset\rParts", cmdSheetMaker.GetMethod(), Properties.Resources.Clear_32,
+                Properties.Resources.Clear_16, "Clears surface foreground color override.");
 
             // 4. Create buttons
-            PushButton myButton = panel.AddItem(myButtonData.Data) as PushButton;
+            PushButton btnCheckParts = panel01.AddItem(btnCheck.Data) as PushButton;
+            PushButton btnResetParts = panel01.AddItem(btnReset.Data) as PushButton;
             return Result.Succeeded;
         }
 
