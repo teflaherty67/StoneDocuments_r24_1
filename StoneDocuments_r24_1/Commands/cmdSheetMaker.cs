@@ -33,7 +33,7 @@ namespace StoneDocuments_r24_1
             tblockCollector.WhereElementIsElementType();
 
             // open form
-            frmSheetMaker curForm = new frmSheetMaker(tblockCollector.ToList(), Utils.GetViews(curDoc))
+            frmSheetMaker curForm = new frmSheetMaker(tblockCollector.ToList(), Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
             {
                 Width = 800,
                 Height = 450,
@@ -63,6 +63,11 @@ namespace StoneDocuments_r24_1
                             if (curData.SelectedView != null)
                             {
                                 Viewport curVP = Viewport.Create(curDoc, newSheet.Id, curData.SelectedView.Id, new XYZ());
+                            }
+
+                            if (curData.SelectedSchedule != null)
+                            {
+                                Viewport curVP = Viewport.Create(curDoc, newSheet.Id, curData.SelectedSchedule.Id, new XYZ());
                             }
                         }
                         catch (Exception ex)

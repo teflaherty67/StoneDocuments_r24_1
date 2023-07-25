@@ -13,5 +13,6 @@ namespace StoneDocuments_r24_1
         public string SheetName { get; set; }
         public Element Titleblock { get; set; }
         public View SelectedView { get; set; }
+        public ViewSchedule SelectedSchedule { get; set; }
     }
 }

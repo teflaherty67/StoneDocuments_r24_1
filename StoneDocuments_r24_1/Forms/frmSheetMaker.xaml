@@ -31,6 +31,8 @@
                                         SelectedItemBinding="{Binding Titleblock}" DisplayMemberPath="Name"/>
                 <DataGridComboBoxColumn x:Name="cmbViews" Width="200" Header="View" IsReadOnly="False" 
                                         SelectedItemBinding="{Binding SelectedView}" DisplayMemberPath="Name"/>
+                <DataGridComboBoxColumn x:Name="cmbSchedules" Width="200" Header="Schedule" IsReadOnly="False" 
+                                        SelectedItemBinding="{Binding SelectedView}" DisplayMemberPath="Name"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left">

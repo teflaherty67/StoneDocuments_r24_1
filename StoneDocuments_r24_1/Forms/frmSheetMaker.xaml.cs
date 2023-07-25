@@ -28,16 +28,18 @@ namespace StoneDocuments_r24_1
         ObservableCollection<clsSheetData> SheetList { get; set; }
         ObservableCollection<Element> TBlockData { get; set; }
         ObservableCollection<View> ViewData { get; set; }
+        ObservableCollection<ViewSchedule> ScheduleData { get; set; }
 
         public List<Element> elemList;
 
-        public frmSheetMaker(List<Element> TblockList, List<View> ViewList)
+        public frmSheetMaker(List<Element> TblockList, List<View> ViewList, List<ViewSchedule> ScheduleList)
         {
             InitializeComponent();
 
             SheetList = new ObservableCollection<clsSheetData>();
             TBlockData = new ObservableCollection<Element>(TblockList);
             ViewData = new ObservableCollection<View>(ViewList);
+            ScheduleData = new ObservableCollection<ViewSchedule>(ScheduleList);
 
             sheetGrid.ItemsSource = SheetList;
             cmbTitleblock.ItemsSource = TBlockData;
