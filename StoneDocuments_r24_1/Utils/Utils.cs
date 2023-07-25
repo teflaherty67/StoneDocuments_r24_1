@@ -165,25 +165,30 @@ namespace StoneDocuments_r24_1
             return m_returnList;
         }
 
+        #endregion
+
+        #region Schedules
+
         internal static object GetSchedules(Document curDoc)
         {
-            List<ViewSchedule> schedList = new List<ViewSchedule>();
+            List<ViewSchedule> m_schedList = new List<ViewSchedule>();
 
-            FilteredElementCollector curCollector = new FilteredElementCollector(curDoc);
-            curCollector.OfClass(typeof(ViewSchedule));
+            FilteredElementCollector m_curCollector = new FilteredElementCollector(curDoc)
+                .OfClass(typeof(ViewSchedule));
 
             //loop through views and check if schedule - if so then put into schedule list
-            foreach (ViewSchedule curView in curCollector)
+            foreach (ViewSchedule curView in m_curCollector)
             {
                 if (curView.ViewType == ViewType.Schedule)
                 {
-                    schedList.Add((ViewSchedule)curView);
+                    m_schedList.Add((ViewSchedule)curView);
                 }
             }
 
-            return schedList;
+            return m_schedList;
         }
 
         #endregion
+
     }
 }

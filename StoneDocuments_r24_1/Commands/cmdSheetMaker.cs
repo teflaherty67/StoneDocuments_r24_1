@@ -28,9 +28,9 @@ namespace StoneDocuments_r24_1
             Document curDoc = uidoc.Document;
 
             // put any code needed for the form here
-            FilteredElementCollector tblockCollector = new FilteredElementCollector(curDoc);
-            tblockCollector.OfCategory(BuiltInCategory.OST_TitleBlocks);
-            tblockCollector.WhereElementIsElementType();
+            FilteredElementCollector tblockCollector = new FilteredElementCollector(curDoc)
+                .OfCategory(BuiltInCategory.OST_TitleBlocks)
+                .WhereElementIsElementType();
 
             // open form
             frmSheetMaker curForm = new frmSheetMaker(tblockCollector.ToList(), Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))

@@ -25,27 +25,24 @@
                   EnableColumnVirtualization="False"
                   EnableRowVirtualization="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Sheet Number" Width="100" IsReadOnly="False" Binding="{Binding SheetNumber, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Sheet Number" Width="80" IsReadOnly="False" Binding="{Binding SheetNumber, Mode=TwoWay}"/>
                 <DataGridTextColumn Header="Sheet Name" Width="*" IsReadOnly="False" Binding="{Binding SheetName, Mode=TwoWay}"/>
-                <DataGridComboBoxColumn x:Name="cmbTitleblock" Width="200" Header="Titleblock" IsReadOnly="False" 
+                <DataGridComboBoxColumn x:Name="cmbTitleblock" Width="150" Header="Titleblock" IsReadOnly="False" 
                                         SelectedItemBinding="{Binding Titleblock}" DisplayMemberPath="Name"/>
-                <DataGridComboBoxColumn x:Name="cmbViews" Width="200" Header="View" IsReadOnly="False" 
+                <DataGridComboBoxColumn x:Name="cmbViews" Width="150" Header="View" IsReadOnly="False" 
                                         SelectedItemBinding="{Binding SelectedView}" DisplayMemberPath="Name"/>
-                <DataGridComboBoxColumn x:Name="cmbSchedules" Width="200" Header="Schedule" IsReadOnly="False" 
-                                        SelectedItemBinding="{Binding SelectedView}" DisplayMemberPath="Name"/>
+                <DataGridComboBoxColumn x:Name="cmbSchedules" Width="150" Header="Schedule" IsReadOnly="False" 
+                                        SelectedItemBinding="{Binding SelectedSchedule}" DisplayMemberPath="Name"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left">
             <Button x:Name="btnAdd" Width="30" Content="+" Height="30" Margin="0,0,10,0" Click="btnAdd_Click"/>
             <Button x:Name="btnRemove" Width="30" Content="-" Height="30" Click="btnRemove_Click"/>
-        </StackPanel>
-        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left">
-            <Button x:Name="btnLoad" Width="90" Content="Load" Height="30" Margin="0,0,10,0" Click="btnLoad_Click"/>
-            <Button x:Name="btnSave" Width="90" Content="Save" Height="30" Click="btnSave_Click"/>
-        </StackPanel>
+        </StackPanel>        
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Width="90" Content="OK" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
-            <Button x:Name="btnCancel" Width="90" Content="Cancel" Height="30" Click="btnCancel_Click"/>
+            <Button x:Name="btnCancel" Width="90" Content="Cancel" Height="30" Click="btnCancel_Click" Margin="0,0,10,0"/>
+            <Button x:Name="btnHelp" Width="90" Height="30" Content="Help"/>
         </StackPanel>
     </Grid>
 </Window>

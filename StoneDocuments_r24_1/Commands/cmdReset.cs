@@ -48,7 +48,6 @@ namespace StoneDocuments_r24_1
                 t.Commit();
             }
 
-
             return Result.Succeeded;
         }
     }
