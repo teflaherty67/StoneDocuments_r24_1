@@ -58,16 +58,16 @@ namespace StoneDocuments_r24_1
                             newSheet = ViewSheet.Create(curDoc, curData.Titleblock.Id);
 
                             newSheet.SheetNumber = curData.SheetNumber.ToUpper();
-                            newSheet.Name = curData.SheetName.ToUpper();
+                            newSheet.Name = curData.SheetName.ToUpper();                          
 
                             if (curData.SelectedView != null)
                             {
-                                Viewport curVP = Viewport.Create(curDoc, newSheet.Id, curData.SelectedView.Id, new XYZ());
+                                Viewport curVP = Viewport.Create(curDoc, newSheet.Id, curData.SelectedView.Id, new XYZ(.1,.1,0));
                             }
 
                             if (curData.SelectedSchedule != null)
                             {
-                                ScheduleSheetInstance curSSI = ScheduleSheetInstance.Create(curDoc, newSheet.Id, curData.SelectedSchedule.Id, new XYZ());
+                                ScheduleSheetInstance curSSI = ScheduleSheetInstance.Create(curDoc, newSheet.Id, curData.SelectedSchedule.Id, new XYZ(.5,.5,0));
                             }
                         }
                         catch (Exception ex)
