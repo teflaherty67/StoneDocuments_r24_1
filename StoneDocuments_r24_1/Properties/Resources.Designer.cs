@@ -63,26 +63,6 @@ namespace StoneDocuments_r24_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Blue_16 {
-            get {
-                object obj = ResourceManager.GetObject("Blue_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Blue_32 {
-            get {
-                object obj = ResourceManager.GetObject("Blue_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Check_16 {
             get {
                 object obj = ResourceManager.GetObject("Check_16", resourceCulture);
@@ -123,9 +103,9 @@ namespace StoneDocuments_r24_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Green_16 {
+        internal static System.Drawing.Bitmap SheetMaker_16 {
             get {
-                object obj = ResourceManager.GetObject("Green_16", resourceCulture);
+                object obj = ResourceManager.GetObject("SheetMaker_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,49 +113,9 @@ namespace StoneDocuments_r24_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Green_32 {
+        internal static System.Drawing.Bitmap SheetMaker_32 {
             get {
-                object obj = ResourceManager.GetObject("Green_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Red_16 {
-            get {
-                object obj = ResourceManager.GetObject("Red_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Red_32 {
-            get {
-                object obj = ResourceManager.GetObject("Red_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Yellow_16 {
-            get {
-                object obj = ResourceManager.GetObject("Yellow_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Yellow_32 {
-            get {
-                object obj = ResourceManager.GetObject("Yellow_32", resourceCulture);
+                object obj = ResourceManager.GetObject("SheetMaker_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

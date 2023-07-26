@@ -67,7 +67,7 @@ namespace StoneDocuments_r24_1
 
                             if (curData.SelectedSchedule != null)
                             {
-                                Viewport curVP = Viewport.Create(curDoc, newSheet.Id, curData.SelectedSchedule.Id, new XYZ());
+                                ScheduleSheetInstance curSSI = ScheduleSheetInstance.Create(curDoc, newSheet.Id, curData.SelectedSchedule.Id, new XYZ());
                             }
                         }
                         catch (Exception ex)

@@ -83,6 +83,8 @@
     <EmbeddedResource Include="Resources\Check_32.png" />
     <EmbeddedResource Include="Resources\Clear_16.png" />
     <EmbeddedResource Include="Resources\Clear_32.png" />
+    <EmbeddedResource Include="Resources\SheetMaker_16.png" />
+    <EmbeddedResource Include="Resources\SheetMaker_32.png" />
     <Content Include="StoneDocuments_r24_1.addin" />
   </ItemGroup>
   <ItemGroup>

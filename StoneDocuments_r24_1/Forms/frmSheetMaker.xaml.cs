@@ -44,6 +44,8 @@ namespace StoneDocuments_r24_1
             sheetGrid.ItemsSource = SheetList;
             cmbTitleblock.ItemsSource = TBlockData;
             cmbViews.ItemsSource = ViewData;
+            cmbSchedules.ItemsSource = ScheduleData;
+
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
