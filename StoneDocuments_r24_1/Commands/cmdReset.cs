@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 #endregion
 
 namespace StoneDocuments_r24_1
@@ -49,6 +50,12 @@ namespace StoneDocuments_r24_1
             }
 
             return Result.Succeeded;
+        }
+
+        public static String GetMethod()
+        {
+            var method = MethodBase.GetCurrentMethod().DeclaringType?.FullName;
+            return method;
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,20 +24,31 @@ namespace StoneDocuments_r24_1
     /// </summary>
     public partial class frmCheck : Window
     {
-        public frmCheck()
+        private RequestHandler m_Handler;
+        private CancelHandler c_Handler;
+        private ExternalEvent m_ExternalEvent;
+        private ExternalEvent c_ExternalEvent;
+
+        public frmCheck(ExternalEvent exEvent, RequestHandler rHandler, CancelHandler cHandler, ExternalEvent cEvent, int count)
         {
             InitializeComponent();
+
+            m_Handler = rHandler;
+            c_Handler = cHandler;
+            m_ExternalEvent = exEvent;
+            c_ExternalEvent = cEvent;
+            tbkCount.Text = count.ToString() + " elements selected";
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            m_ExternalEvent.Raise();
             this.Close();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
+            c_ExternalEvent.Raise();
             this.Close();
         }
     }

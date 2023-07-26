@@ -18,6 +18,15 @@
     <VendorId>RBA Inc</VendorId>
     <VendorDescription>Tom E Flaherty, RBA Inc</VendorDescription>
   </AddIn>
+  <AddIn Type="Command">
+    <Text>Reset Parts</Text>
+    <Description>Some description for StoneDocuments_r24_1</Description>
+    <Assembly>StoneDocuments_r24_1.dll</Assembly>
+    <FullClassName>StoneDocuments_r24_1.cmdReset</FullClassName>
+    <ClientId>CDD15A9E-28F0-4C14-8F32-F8B147892F10</ClientId>
+    <VendorId>RBA Inc</VendorId>
+    <VendorDescription>Tom E Flaherty, RBA Inc</VendorDescription>
+  </AddIn>
   <AddIn Type="Application">
     <Name>Application StoneDocuments_r24_1</Name>
     <Assembly>StoneDocuments_r24_1.dll</Assembly>

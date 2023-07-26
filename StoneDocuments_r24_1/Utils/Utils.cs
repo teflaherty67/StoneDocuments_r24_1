@@ -169,7 +169,7 @@ namespace StoneDocuments_r24_1
 
         #region Schedules
 
-        internal static object GetSchedules(Document curDoc)
+        internal static List<ViewSchedule> GetSchedules(Document curDoc)
         {
             List<ViewSchedule> m_schedList = new List<ViewSchedule>();
 

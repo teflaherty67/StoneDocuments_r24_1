@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="ElemList.Count.ToString() + &quot;elements selected&quot;"/>
+        <TextBlock x:Name="tbkCount" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="ElemList.Count.ToString() + &quot;elements selected&quot;"/>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Label Content="Accept overrides?"/>
             <Button x:Name="btnOK" Width="90" Height="25" Margin="20,0,0,0" Content="OK" Click="btnOK_Click"/>

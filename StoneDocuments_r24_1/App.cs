@@ -32,11 +32,11 @@ namespace StoneDocuments_r24_1
             RibbonPanel panel02 = Utils.CreateRibbonPanel(app, "Stone Documents", "Sheets");
 
             // 3. Create button data instances
-            clsButtonDataClass btnCheck = new clsButtonDataClass("btnStoneDocuments_r24_1",
-                "Check\rParts", cmdSheetMaker.GetMethod(), Properties.Resources.Check_32,
+            clsButtonDataClass btnCheck = new clsButtonDataClass("toolCheck",
+                "Check\rParts", cmdCheck.GetMethod(), Properties.Resources.Check_32,
                 Properties.Resources.Check_16, "Check parts by schedule and override surface foreground color.");
-            clsButtonDataClass btnReset = new clsButtonDataClass("btnStoneDocuments_r24_1",
-                "Reset\rParts", cmdSheetMaker.GetMethod(), Properties.Resources.Clear_32,
+            clsButtonDataClass btnReset = new clsButtonDataClass("toolReset",
+                "Reset\rParts", cmdReset.GetMethod(), Properties.Resources.Clear_32,
                 Properties.Resources.Clear_16, "Clears surface foreground color override.");
 
             // 4. Create buttons
