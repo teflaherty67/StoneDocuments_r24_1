@@ -32,8 +32,10 @@ namespace StoneDocuments_r24_1
                 .OfCategory(BuiltInCategory.OST_TitleBlocks)
                 .WhereElementIsElementType();
 
+            List<string> catList = new List<string> { "Coordination", "Review", "Shop Drawings", "Tickets" };
+
             // open form
-            frmSheetMaker curForm = new frmSheetMaker(tblockCollector.ToList(), Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
+            frmSheetMaker curForm = new frmSheetMaker(tblockCollector.ToList(), catList, Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
             {
                 Width = 800,
                 Height = 450,
@@ -58,7 +60,10 @@ namespace StoneDocuments_r24_1
                             newSheet = ViewSheet.Create(curDoc, curData.Titleblock.Id);
 
                             newSheet.SheetNumber = curData.SheetNumber.ToUpper();
-                            newSheet.Name = curData.SheetName.ToUpper();                          
+                            newSheet.Name = curData.SheetName.ToUpper();
+
+                            string newCategory = curData.SelectedCategory;
+                            string newGroup = curData.GroupName;
 
                             if (curData.SelectedView != null)
                             {
@@ -68,6 +73,16 @@ namespace StoneDocuments_r24_1
                             if (curData.SelectedSchedule != null)
                             {
                                 ScheduleSheetInstance curSSI = ScheduleSheetInstance.Create(curDoc, newSheet.Id, curData.SelectedSchedule.Id, new XYZ(.25,.65,0));
+                            }
+
+                            if (curData.SelectedCategory != null)
+                            {
+                                Utils.SetParameterByName(newSheet, "Category", newCategory);
+                            }
+
+                            if(curData.GroupName != null)
+                            {
+                                Utils.SetParameterByName(newSheet, "Group", newGroup);
                             }
                         }
                         catch (Exception ex)

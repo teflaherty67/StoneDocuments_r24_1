@@ -65,6 +65,48 @@ namespace StoneDocuments_r24_1
 
         #endregion
 
+        #region Parameters
+
+        internal static string GetParameterValueByName(Element element, string paramName)
+        {
+            IList<Parameter> paramList = element.GetParameters(paramName);
+
+            if (paramList != null)
+                try
+                {
+                    Parameter param = paramList[0];
+                    string paramValue = param.AsValueString();
+                    return paramValue;
+                }
+                catch (System.ArgumentOutOfRangeException)
+                {
+                    return null;
+                }
+
+            return "";
+        }
+
+        internal static string SetParameterByName(Element curElem, string paramName, string value)
+        {
+            Parameter curParam = GetParameterByName(curElem, paramName);
+
+            curParam.Set(value);
+            return curParam.ToString();
+        }
+
+        internal static Parameter GetParameterByName(Element curElem, string paramName)
+        {
+            foreach (Parameter curParam in curElem.Parameters)
+            {
+                if (curParam.Definition.Name.ToString() == paramName)
+                    return curParam;
+            }
+
+            return null;
+        }
+
+#endregion
+
         #region Ribbon
 
         internal static RibbonPanel CreateRibbonPanel(UIControlledApplication app, string tabName, string panelName)
