@@ -5,18 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StoneDocuments_r24_1"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Title="Batch Sheet Creator" >
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>            
         </Grid.RowDefinitions>
-        <Label Content="Sheet Maker" VerticalAlignment="Center" FontWeight="Bold" FontSize="28"/>
-        <Label Content="Enter sheet information below:" Grid.Row="1" VerticalAlignment="Center"/>
-        <DataGrid x:Name="sheetGrid" Grid.Row="2"
+        <Label Content="Enter sheet information below:" Grid.Row="0" VerticalAlignment="Center"/>
+        <DataGrid x:Name="sheetGrid" Grid.Row="1"
                   GridLinesVisibility="All"
                   AlternatingRowBackground="AliceBlue" 
                   CanUserAddRows="True" 
@@ -25,16 +22,16 @@
                   EnableColumnVirtualization="False"
                   EnableRowVirtualization="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Sheet Number" Width="80" IsReadOnly="False" Binding="{Binding SheetNumber, Mode=TwoWay}"/>
-                <DataGridTextColumn Header="Sheet Name" Width="*" IsReadOnly="False" Binding="{Binding SheetName, Mode=TwoWay}"/>
-                <DataGridComboBoxColumn x:Name="cmbTitleblock" Width="150" Header="Titleblock" IsReadOnly="False" 
+                <DataGridTextColumn Header="Number" Width="80" IsReadOnly="False" Binding="{Binding SheetNumber, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Name" Width="*" IsReadOnly="False" Binding="{Binding SheetName, Mode=TwoWay}"/>
+                <DataGridComboBoxColumn x:Name="cmbTitleblock" Width="100" Header="Titleblock" IsReadOnly="False" 
                                         SelectedItemBinding="{Binding Titleblock}" DisplayMemberPath="Name"/>
-                <DataGridComboBoxColumn x:Name="cmbCategory" Width="150" Header="Category" IsReadOnly="False"
+                <DataGridComboBoxColumn x:Name="cmbCategory" Width="120" Header="Category" IsReadOnly="False"
                                         SelectedItemBinding="{Binding SelectedCategory}" DisplayMemberPath="Name"/>
                 <DataGridTextColumn Header="Group" Width="*" IsReadOnly="False" Binding="{Binding GroupName, Mode=TwoWay}"/>
-                <DataGridComboBoxColumn x:Name="cmbViews" Width="150" Header="View" IsReadOnly="False" 
+                <DataGridComboBoxColumn x:Name="cmbViews" Width="120" Header="View" IsReadOnly="False" 
                                         SelectedItemBinding="{Binding SelectedView}" DisplayMemberPath="Name"/>
-                <DataGridComboBoxColumn x:Name="cmbSchedules" Width="150" Header="Schedule" IsReadOnly="False" 
+                <DataGridComboBoxColumn x:Name="cmbSchedules" Width="120" Header="Schedule" IsReadOnly="False" 
                                         SelectedItemBinding="{Binding SelectedSchedule}" DisplayMemberPath="Name"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -42,7 +39,7 @@
             <Button x:Name="btnAdd" Width="30" Content="+" Height="30" Margin="0,0,10,0" Click="btnAdd_Click"/>
             <Button x:Name="btnRemove" Width="30" Content="-" Height="30" Click="btnRemove_Click"/>
         </StackPanel>        
-        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Width="90" Content="OK" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
             <Button x:Name="btnCancel" Width="90" Content="Cancel" Height="30" Click="btnCancel_Click" Margin="0,0,10,0"/>
             <Button x:Name="btnHelp" Width="90" Height="30" Content="Help"/>
