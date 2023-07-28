@@ -52,6 +52,16 @@ namespace StoneDocuments_r24_1
 
         }
 
+        public string GetTextBoxAddCategory()
+        {
+            return tbxAddCat.Text;
+        }
+
+        public void AddCategoryItem(string userCategory)
+        {
+
+        }
+
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             SheetList.Add(new clsSheetData());
@@ -86,6 +96,11 @@ namespace StoneDocuments_r24_1
         public List<clsSheetData> GetSheetData()
         {
             return SheetList.ToList();
+        }
+
+        private void btnAddCat_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

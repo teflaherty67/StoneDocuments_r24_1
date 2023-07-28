@@ -33,7 +33,7 @@ namespace StoneDocuments_r24_1
                 .WhereElementIsElementType();
 
             List<string> catList = new List<string> { "Coordination", "Review", "Shop Drawings", "Tickets" };
-
+            
             // open form
             frmSheetMaker curForm = new frmSheetMaker(tblockCollector.ToList(), catList, Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
             {
@@ -44,6 +44,8 @@ namespace StoneDocuments_r24_1
             };
 
             curForm.ShowDialog();
+
+            
 
             if (curForm.DialogResult == true)
             {
