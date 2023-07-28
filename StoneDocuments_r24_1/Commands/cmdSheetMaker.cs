@@ -58,7 +58,7 @@ namespace StoneDocuments_r24_1
                             newSheet = ViewSheet.Create(curDoc, curData.Titleblock.Id);
 
                             newSheet.SheetNumber = curData.SheetNumber.ToUpper();
-                            newSheet.Name = curData.SheetName.ToUpper();
+                            newSheet.Name = curData.SheetName.ToUpper();                          
 
                             if (curData.SelectedView != null)
                             {
