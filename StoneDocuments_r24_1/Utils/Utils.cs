@@ -174,14 +174,21 @@ namespace StoneDocuments_r24_1
             List<ViewSchedule> m_schedList = new List<ViewSchedule>();
 
             FilteredElementCollector m_curCollector = new FilteredElementCollector(curDoc)
-                .OfClass(typeof(ViewSchedule));
+                .OfClass(typeof(ViewSchedule))
+                .WhereElementIsNotElementType();
 
             //loop through views and check if schedule - if so then put into schedule list
             foreach (ViewSchedule curView in m_curCollector)
             {
                 if (curView.ViewType == ViewType.Schedule)
                 {
-                    m_schedList.Add((ViewSchedule)curView);
+                    if (curView.IsTemplate == false)
+                    {
+                        if (curView.Name.Contains("<") && curView.Name.Contains(">"))
+                            continue;
+                        else
+                            m_schedList.Add((ViewSchedule)curView);
+                    }
                 }
             }
 
