@@ -62,12 +62,12 @@ namespace StoneDocuments_r24_1
 
                             if (curData.SelectedView != null)
                             {
-                                Viewport curVP = Viewport.Create(curDoc, newSheet.Id, curData.SelectedView.Id, new XYZ());
+                                Viewport curVP = Viewport.Create(curDoc, newSheet.Id, curData.SelectedView.Id, new XYZ(.25,.25,0));
                             }
 
                             if (curData.SelectedSchedule != null)
                             {
-                                ScheduleSheetInstance curSSI = ScheduleSheetInstance.Create(curDoc, newSheet.Id, curData.SelectedSchedule.Id, new XYZ());
+                                ScheduleSheetInstance curSSI = ScheduleSheetInstance.Create(curDoc, newSheet.Id, curData.SelectedSchedule.Id, new XYZ(.25,.65,0));
                             }
                         }
                         catch (Exception ex)

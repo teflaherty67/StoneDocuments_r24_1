@@ -13,6 +13,7 @@ using System.Reflection;
 
 namespace StoneDocuments_r24_1
 {
+    [Transaction(TransactionMode.Manual)]
     public class cmdReset : IExternalCommand
     {
         public Result Execute(

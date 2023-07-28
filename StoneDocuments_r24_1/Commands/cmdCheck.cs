@@ -60,9 +60,7 @@ namespace StoneDocuments_r24_1
             uidoc.ActiveView = curView;
 
             uidoc.Selection.SetElementIds(elemIdList);
-
-            // open form
-
+            
             // create handler and event then open form
             RequestHandler handler = new RequestHandler();
             ExternalEvent exEvent = ExternalEvent.Create(handler);
@@ -71,11 +69,13 @@ namespace StoneDocuments_r24_1
 
             frmCheck curForm = new frmCheck(exEvent, handler, cHandler, cEvent, elemList.Count)
             {
-                Width = 800,
-                Height = 450,
+                Width = 365,
+                Height = 150,
                 WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
                 Topmost = true,
             };
+
+            curForm.Show();
 
             return Result.Succeeded;
         }
