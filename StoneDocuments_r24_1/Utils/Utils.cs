@@ -88,7 +88,7 @@ namespace StoneDocuments_r24_1
 
         internal static string SetParameterByName(Element curElem, string paramName, string value)
         {
-            Parameter curParam = GetParameterByName(curElem, paramName);
+            Parameter curParam = GetParameterByNameAndWritable(curElem, paramName);
 
             curParam.Set(value);
             return curParam.ToString();
@@ -105,7 +105,18 @@ namespace StoneDocuments_r24_1
             return null;
         }
 
-#endregion
+        internal static Parameter GetParameterByNameAndWritable(Element curElem, string paramName)
+        {
+            foreach (Parameter curParam in curElem.Parameters)
+            {
+                if (curParam.Definition.Name.ToString() == paramName && curParam.IsReadOnly == false)
+                    return curParam;
+            }
+
+            return null;
+        }
+
+        #endregion
 
         #region Ribbon
 
