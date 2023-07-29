@@ -44,7 +44,7 @@
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Width="90" Content="OK" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
             <Button x:Name="btnCancel" Width="90" Content="Cancel" Height="30" Click="btnCancel_Click" Margin="0,0,10,0"/>
-            <Button x:Name="btnHelp" Width="90" Height="30" Content="Help"/>
+            <Button x:Name="btnHelp" Width="90" Height="30" Content="Help" Click="btnHelp_Click"/>
         </StackPanel>
     </Grid>
 </Window>

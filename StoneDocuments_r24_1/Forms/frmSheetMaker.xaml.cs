@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 
@@ -95,6 +96,9 @@ namespace StoneDocuments_r24_1
             return SheetList.ToList();
         }
 
-        
+        private void btnHelp_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://lifestyle-usa-design.atlassian.net/l/cp/go9N6F33");
+        }
     }
 }
