@@ -34,6 +34,7 @@ namespace StoneDocuments_r24_1
         ObservableCollection<ViewSchedule> ScheduleData { get; set; }
         ObservableCollection<string> CategoryData { get; set; }
         ObservableCollection<clsWrapperTBlockType> Types { get; set; }        
+        string SelectedTitleBlck { get; set; }
 
         public List<Element> elemList;
 
@@ -76,7 +77,7 @@ namespace StoneDocuments_r24_1
 
         private void btnAddCat_Click(object sender, RoutedEventArgs e)
         {
-            //CategoryData.Add(tbxAddCat.Text);
+            CategoryData.Add(tbxAddCat.Text);
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
