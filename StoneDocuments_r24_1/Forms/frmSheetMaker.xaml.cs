@@ -71,22 +71,11 @@ namespace StoneDocuments_r24_1
             }
             catch (Exception)
             { }
-        }
-
-        public void AddCategoryItem(string userCategory)
-        {
-            clsSheetData newCat = new clsSheetData();
-            CategoryData.Add(userCategory);
-        }
+        }       
 
         private void btnAddCat_Click(object sender, RoutedEventArgs e)
         {
-            //if (curEdit == null)
-            //{
-            //    AddCategoryItem(tbxAddCat.Text);
-            //}
-
-            //tbxAddCat.Text = "";
+            //CategoryData.Add(tbxAddCat.Text);
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)

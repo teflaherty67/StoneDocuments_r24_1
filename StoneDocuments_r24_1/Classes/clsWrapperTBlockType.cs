@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StoneDocuments_r24_1
 {
-    internal class clsWrapperTBlockType
+    public class clsWrapperTBlockType
     {
         public FamilySymbol TitleblockType { get; set; }
         public string FamilyAndType { get; set; }
