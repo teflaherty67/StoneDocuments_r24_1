@@ -60,6 +60,7 @@
     <Compile Include="App.cs" />
     <Compile Include="Classes\clsButtonDataClass.cs" />
     <Compile Include="Classes\clsSheetData.cs" />
+    <Compile Include="Classes\clsWrapperTBlockType.cs" />
     <Compile Include="Commands\cmdCheck.cs" />
     <Compile Include="Commands\cmdReset.cs" />
     <Compile Include="Commands\cmdSheetMaker.cs" />

@@ -6,6 +6,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
@@ -32,10 +33,20 @@ namespace StoneDocuments_r24_1
                 .OfCategory(BuiltInCategory.OST_TitleBlocks)
                 .WhereElementIsElementType();
 
+            List<clsWrapperTBlockType> tblockTypeList = new List<clsWrapperTBlockType>();
+            foreach (FamilySymbol curTblockType in tblockCollector)
+            {
+                clsWrapperTBlockType tblockWrapper = new clsWrapperTBlockType(curTblockType);
+                tblockTypeList.Add(tblockWrapper);
+            }
+
+            // sort list by family and type
+            List<clsWrapperTBlockType> sortedList = tblockTypeList.OrderBy(o => o.FamilyAndType).ToList();
+
             List<string> catList = new List<string> { "Coordination", "Review", "Shop Drawings", "Tickets" };
             
             // open form
-            frmSheetMaker curForm = new frmSheetMaker(tblockCollector.ToList(), catList, Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
+            frmSheetMaker curForm = new frmSheetMaker(sortedList, catList, Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
             {
                 Width = 800,
                 Height = 450,
