@@ -99,7 +99,7 @@ namespace StoneDocuments_r24_1
 
         private void btnHelp_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://lifestyle-usa-design.atlassian.net/l/cp/go9N6F33");
+            Process.Start("https://lifestyle-usa-design.atlassian.net/l/cp/eL0qinyA");
         }
     }
 }
