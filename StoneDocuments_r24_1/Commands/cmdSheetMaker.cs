@@ -54,15 +54,14 @@ namespace StoneDocuments_r24_1
                 Topmost = true,
             };
 
-            curForm.ShowDialog();
-
-            
+            curForm.ShowDialog();            
 
             if (curForm.DialogResult == true)
             {
                 using (Transaction t = new Transaction(curDoc))
                 {
                     t.Start("Create new sheets");
+
                     // get form data and do something
                     foreach (clsSheetData curData in curForm.GetSheetData())
                     {
@@ -70,7 +69,7 @@ namespace StoneDocuments_r24_1
                         {
                             ViewSheet newSheet;
 
-                            newSheet = ViewSheet.Create(curDoc, curData.Titleblock.Id);
+                            newSheet = ViewSheet.Create(curDoc, curData.SelectedTitleBlock.Id);
 
                             newSheet.SheetNumber = curData.SheetNumber.ToUpper();
                             newSheet.Name = curData.SheetName.ToUpper();

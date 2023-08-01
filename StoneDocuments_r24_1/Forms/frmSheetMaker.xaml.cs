@@ -29,13 +29,11 @@ namespace StoneDocuments_r24_1
     public partial class frmSheetMaker : Window
     {
         ObservableCollection<clsSheetData> SheetList { get; set; }
-        ObservableCollection<Element> TBlockData { get; set; }
         ObservableCollection<View> ViewData { get; set; }
         ObservableCollection<ViewSchedule> ScheduleData { get; set; }
         ObservableCollection<string> CategoryData { get; set; }
         ObservableCollection<clsWrapperTBlockType> Types { get; set; }        
-        string SelectedTitleBlck { get; set; }
-
+        
         public List<Element> elemList;
 
         public frmSheetMaker(List<clsWrapperTBlockType> typeList, List<string> CategoryList, List<View> ViewList, List<ViewSchedule> ScheduleList)
@@ -46,7 +44,7 @@ namespace StoneDocuments_r24_1
             Types = new ObservableCollection<clsWrapperTBlockType>(typeList);
             CategoryData = new ObservableCollection<string>(CategoryList);
             ViewData = new ObservableCollection<View>(ViewList);
-            ScheduleData = new ObservableCollection<ViewSchedule>(ScheduleList);            
+            ScheduleData = new ObservableCollection<ViewSchedule>(ScheduleList);          
 
            
             sheetGrid.ItemsSource = SheetList;
