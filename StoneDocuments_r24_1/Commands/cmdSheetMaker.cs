@@ -43,6 +43,8 @@ namespace StoneDocuments_r24_1
             // sort list by family and type
             List<clsWrapperTBlockType> sortedList = tblockTypeList.OrderBy(o => o.FamilyAndType).ToList();
 
+            List<string> categoryList = Utils.GetAllSheetCategoriesByName(curDoc, "Category");
+
             List<string> catList = new List<string> { "Coordination", "Review", "Shop Drawings", "Tickets" };
             
             // open form

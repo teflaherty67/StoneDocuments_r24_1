@@ -162,6 +162,70 @@ namespace StoneDocuments_r24_1
             return schedList;
         }
 
+        internal static List<ViewSchedule> GetSchedules(Document curDoc)
+        {
+            List<ViewSchedule> m_schedList = new List<ViewSchedule>();
+
+            FilteredElementCollector m_curCollector = new FilteredElementCollector(curDoc)
+                .OfClass(typeof(ViewSchedule))
+                .WhereElementIsNotElementType();
+
+            //loop through views and check if schedule - if so then put into schedule list
+            foreach (ViewSchedule curView in m_curCollector)
+            {
+                if (curView.ViewType == ViewType.Schedule)
+                {
+                    if (curView.IsTemplate == false)
+                    {
+                        if (curView.Name.Contains("<") && curView.Name.Contains(">"))
+                            continue;
+                        else
+                            m_schedList.Add((ViewSchedule)curView);
+                    }
+                }
+            }
+
+            return m_schedList;
+        }
+
+        #endregion
+
+        #region Sheets       
+
+        internal static List<string> GetAllSheetCategoriesByName(Document curDoc, string paramName)
+        {
+            List<ViewSheet> m_sheetList = GetAllSheets(curDoc);
+
+            List<string> m_catNames = new List<string>();
+
+            string catName = "";
+
+            foreach (ViewSheet curSheet in m_sheetList)
+            {
+                catName = GetParameterValueByName(curSheet, paramName);
+                m_catNames.Add(catName);
+            }
+
+            List<string> m_groupedList = m_catNames.GroupBy(x => x.Defi)
+
+            throw new NotImplementedException();
+        }
+
+        public static List<ViewSheet> GetAllSheets(Document curDoc)
+        {
+            //get all sheets
+            FilteredElementCollector m_colViews = new FilteredElementCollector(curDoc);
+            m_colViews.OfCategory(BuiltInCategory.OST_Sheets);
+
+            List<ViewSheet> m_sheets = new List<ViewSheet>();
+            foreach (ViewSheet x in m_colViews.ToElements())
+            {
+                m_sheets.Add(x);
+            }
+
+            return m_sheets;
+        }
+
         #endregion
 
         #region Views
@@ -218,37 +282,7 @@ namespace StoneDocuments_r24_1
             return m_returnList;
         }
 
-        #endregion
-
-        #region Schedules
-
-        internal static List<ViewSchedule> GetSchedules(Document curDoc)
-        {
-            List<ViewSchedule> m_schedList = new List<ViewSchedule>();
-
-            FilteredElementCollector m_curCollector = new FilteredElementCollector(curDoc)
-                .OfClass(typeof(ViewSchedule))
-                .WhereElementIsNotElementType();
-
-            //loop through views and check if schedule - if so then put into schedule list
-            foreach (ViewSchedule curView in m_curCollector)
-            {
-                if (curView.ViewType == ViewType.Schedule)
-                {
-                    if (curView.IsTemplate == false)
-                    {
-                        if (curView.Name.Contains("<") && curView.Name.Contains(">"))
-                            continue;
-                        else
-                            m_schedList.Add((ViewSchedule)curView);
-                    }
-                }
-            }
-
-            return m_schedList;
-        }
-
-        #endregion
+        #endregion        
 
     }
 }
