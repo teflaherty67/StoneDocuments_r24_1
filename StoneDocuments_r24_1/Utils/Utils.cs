@@ -92,18 +92,7 @@ namespace StoneDocuments_r24_1
 
             curParam.Set(value);
             return curParam.ToString();
-        }
-
-        internal static Parameter GetParameterByName(Element curElem, string paramName)
-        {
-            foreach (Parameter curParam in curElem.Parameters)
-            {
-                if (curParam.Definition.Name.ToString() == paramName)
-                    return curParam;
-            }
-
-            return null;
-        }
+        }        
 
         internal static Parameter GetParameterByNameAndWritable(Element curElem, string paramName)
         {
@@ -206,9 +195,9 @@ namespace StoneDocuments_r24_1
                 m_catNames.Add(catName);
             }
 
-            m_catNames.Sort();
+            List<string> m_distinctList = m_catNames.Distinct().ToList();
 
-            return m_catNames;
+            return m_distinctList;
         }
 
         public static List<ViewSheet> GetAllSheets(Document curDoc)

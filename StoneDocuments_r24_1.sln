@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoneDocuments_r24_1", "StoneDocuments_r24_1\StoneDocuments_r24_1.csproj", "{CFE3B5D5-7770-4A14-A5BE-316FD2A08ACC}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "StoneDocuments_Installer_r24_1", "StoneDocuments_Installer_r24_1\StoneDocuments_Installer_r24_1.vdproj", "{E55B8855-E7F5-43D5-B5F3-DDE76BB92A03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{CFE3B5D5-7770-4A14-A5BE-316FD2A08ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFE3B5D5-7770-4A14-A5BE-316FD2A08ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFE3B5D5-7770-4A14-A5BE-316FD2A08ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E55B8855-E7F5-43D5-B5F3-DDE76BB92A03}.Debug|Any CPU.ActiveCfg = Debug
+		{E55B8855-E7F5-43D5-B5F3-DDE76BB92A03}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
