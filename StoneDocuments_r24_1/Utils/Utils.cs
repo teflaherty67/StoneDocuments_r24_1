@@ -206,9 +206,9 @@ namespace StoneDocuments_r24_1
                 m_catNames.Add(catName);
             }
 
-            List<string> m_groupedList = m_catNames.GroupBy(x => x.Defi)
+            m_catNames.Sort();
 
-            throw new NotImplementedException();
+            return m_catNames;
         }
 
         public static List<ViewSheet> GetAllSheets(Document curDoc)
