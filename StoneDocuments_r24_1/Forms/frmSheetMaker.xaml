@@ -25,7 +25,9 @@
                 <DataGridTextColumn Header="Number" Width="80" IsReadOnly="False" Binding="{Binding SheetNumber, Mode=TwoWay}"/>
                 <DataGridTextColumn Header="Name" Width="*" IsReadOnly="False" Binding="{Binding SheetName, Mode=TwoWay}"/>
                 <DataGridComboBoxColumn x:Name="cmbTitleblock" Width="100" Header="Titleblock" IsReadOnly="False" 
-                                        SelectedItemBinding="{Binding SelectedTitleBlock}" DisplayMemberPath="FamilyAndType"/>
+                                        SelectedValueBinding="{Binding SelectedTitleBlock}" 
+                                        SelectedValuePath="TitleblockType"
+                                        DisplayMemberPath="FamilyAndType"/>
                 <DataGridComboBoxColumn x:Name="cmbCategory" Width="120" Header="Category" IsReadOnly="False"
                                         SelectedItemBinding="{Binding SelectedCategory}"/>
                 <DataGridTextColumn Header="Group" Width="120" IsReadOnly="False" Binding="{Binding GroupName, Mode=TwoWay}"/>
