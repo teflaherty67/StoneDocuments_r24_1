@@ -44,15 +44,25 @@ namespace StoneDocuments_r24_1
             Types = new ObservableCollection<clsWrapperTBlockType>(typeList);
             CategoryData = new ObservableCollection<string>(CategoryList);
             ViewData = new ObservableCollection<View>(ViewList);
-            ScheduleData = new ObservableCollection<ViewSchedule>(ScheduleList);          
+            ScheduleData = new ObservableCollection<ViewSchedule>(ScheduleList);
 
-           
+
             sheetGrid.ItemsSource = SheetList;
             cmbTitleblock.ItemsSource = Types;
             cmbCategory.ItemsSource = CategoryData;
             cmbViews.ItemsSource = ViewData;
             cmbSchedules.ItemsSource = ScheduleData;
-        }        
+        }
+        
+        internal string GetComboBoxTitleblock()
+        {
+            return cmbTitleblock.SelectedItem.ToString();
+        }
+
+        internal string GetComboBoxCategory()
+        { 
+            return cmbCategory.SelectedItem.ToString();
+        }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
