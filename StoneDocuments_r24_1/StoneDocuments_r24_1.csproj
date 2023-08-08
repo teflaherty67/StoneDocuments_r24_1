@@ -59,7 +59,6 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Classes\clsButtonDataClass.cs" />
-    <Compile Include="Classes\clsTBlockData.cs" />
     <Compile Include="Classes\clsSheetData.cs" />
     <Compile Include="Classes\clsWrapperTBlockType.cs" />
     <Compile Include="Commands\cmdCheck.cs" />

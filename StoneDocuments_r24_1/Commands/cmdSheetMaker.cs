@@ -69,12 +69,12 @@ namespace StoneDocuments_r24_1
                         {
                             ViewSheet newSheet;
 
-                            newSheet = ViewSheet.Create(curDoc, curForm.GetComboBoxTitleblock.Id);
+                            newSheet = ViewSheet.Create(curDoc, curForm.GetComboBoxTitleblock().Id);
 
                             newSheet.SheetNumber = curData.SheetNumber.ToUpper();
                             newSheet.Name = curData.SheetName.ToUpper();
 
-                            string newCategory = curData.SelectedCategory;
+                            string newCategory = curForm.GetComboBoxCategory();
                             string newGroup = curData.GroupName;
 
                             if (curData.SelectedView != null)

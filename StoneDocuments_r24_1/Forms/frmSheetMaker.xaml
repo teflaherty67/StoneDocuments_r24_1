@@ -11,7 +11,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="30"/>            
         </Grid.RowDefinitions>
@@ -34,17 +34,17 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Select titleblock, category and group for new sheets:" Grid.Row="2" VerticalAlignment="Center"/>
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60">
             <GroupBox Header="Titleblock:" BorderThickness="0">
-                <ComboBox x:Name="cmbTitleblock" Height="50" Width="150" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedTitleBlock}" 
+                <ComboBox x:Name="cmbTitleblock" Height="30" Width="150" SelectedItem="{Binding SelectedTitleBlock}" 
                                         SelectedValuePath="TitleblockType"
                                         DisplayMemberPath="FamilyAndType"/>
             </GroupBox>
             <GroupBox Header="Category:" BorderThickness="0">
-                <ComboBox x:Name="cmbCategory" Height="50" Width="150"/>
+                <ComboBox x:Name="cmbCategory" Height="30" Width="150"/>
             </GroupBox>
             <GroupBox Header="Group:" BorderThickness="0">
-                <ComboBox x:Name="cmbGroup" Height="50" Width="150" IsDropDownOpen="True"/>
+                <ComboBox x:Name="cmbGroup" Height="30" Width="150"/>
             </GroupBox>
         </StackPanel>
         <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Left">

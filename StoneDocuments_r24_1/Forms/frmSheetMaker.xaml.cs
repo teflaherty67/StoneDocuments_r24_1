@@ -32,8 +32,12 @@ namespace StoneDocuments_r24_1
         ObservableCollection<View> ViewData { get; set; }
         ObservableCollection<ViewSchedule> ScheduleData { get; set; }
         ObservableCollection<string> CategoryData { get; set; }
-        ObservableCollection<clsWrapperTBlockType> Types { get; set; }        
-        
+        ObservableCollection<clsWrapperTBlockType> Types { get; set; }
+
+        public FamilySymbol SelectedTitleBlock { get; set; }
+        public string SelectedCategory { get; set; }
+        public string GroupName { get; set; }
+
         public List<Element> elemList;
 
         public frmSheetMaker(List<clsWrapperTBlockType> typeList, List<string> CategoryList, List<View> ViewList, List<ViewSchedule> ScheduleList)
@@ -54,9 +58,9 @@ namespace StoneDocuments_r24_1
             cmbSchedules.ItemsSource = ScheduleData;
         }
         
-        internal string GetComboBoxTitleblock()
+        internal FamilySymbol GetComboBoxTitleblock()
         {
-            return cmbTitleblock.SelectedItem.ToString();
+            return SelectedTitleBlock;
         }
 
         internal string GetComboBoxCategory()
