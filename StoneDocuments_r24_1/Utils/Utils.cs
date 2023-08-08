@@ -200,6 +200,25 @@ namespace StoneDocuments_r24_1
             return m_distinctList;
         }
 
+        internal static List<string> GetAllShhetGroupsByName(Document curDoc, string paramName)
+        {
+            List<ViewSheet> m_sheetList = GetAllSheets(curDoc);
+
+            List<string> m_grpNames = new List<string>();
+
+            string grpName = "";
+
+            foreach (ViewSheet curSheet in m_sheetList)
+            {
+                grpName = GetParameterValueByName(curSheet, paramName);
+                m_grpNames.Add(grpName);
+            }
+
+            List<string> m_distinctList = m_grpNames.Distinct().ToList();
+
+            return m_distinctList;
+        }
+
         public static List<ViewSheet> GetAllSheets(Document curDoc)
         {
             //get all sheets
@@ -271,7 +290,9 @@ namespace StoneDocuments_r24_1
             return m_returnList;
         }
 
-        #endregion        
+        
+
+        #endregion
 
     }
 }

@@ -44,9 +44,11 @@ namespace StoneDocuments_r24_1
             List<clsWrapperTBlockType> sortedList = tblockTypeList.OrderBy(o => o.FamilyAndType).ToList();
 
             List<string> catList = Utils.GetAllSheetCategoriesByName(curDoc, "Category");
+
+            List<string> grpList = Utils.GetAllShhetGroupsByName(curDoc, "Group");
                        
             // open form
-            frmSheetMaker curForm = new frmSheetMaker(sortedList, catList, Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
+            frmSheetMaker curForm = new frmSheetMaker(sortedList, catList, grpList, Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
             {
                 Width = 800,
                 Height = 450,
@@ -75,7 +77,7 @@ namespace StoneDocuments_r24_1
                             newSheet.Name = curData.SheetName.ToUpper();
 
                             string newCategory = curForm.GetComboBoxCategory();
-                            string newGroup = curData.GroupName;
+                            string newGroup = curForm.GetComboBoxGroup();
 
                             if (curData.SelectedView != null)
                             {
@@ -87,12 +89,12 @@ namespace StoneDocuments_r24_1
                                 ScheduleSheetInstance curSSI = ScheduleSheetInstance.Create(curDoc, newSheet.Id, curData.SelectedSchedule.Id, new XYZ(.25,.65,0));
                             }
 
-                            if (curData.SelectedCategory != null)
+                            if (curForm.GetComboBoxCategory() != null)
                             {
                                 Utils.SetParameterByName(newSheet, "Category", newCategory);
                             }
 
-                            if(curData.GroupName != null)
+                            if(curForm.GetComboBoxGroup() != null)
                             {
                                 Utils.SetParameterByName(newSheet, "Group", newGroup);
                             }
