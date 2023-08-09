@@ -45,10 +45,10 @@
                                         DisplayMemberPath="FamilyAndType"/>
             </GroupBox>
             <GroupBox Header="Category:" BorderThickness="0">
-                <ComboBox x:Name="cmbCategory" Height="30" Width="150"/>
+                <ComboBox x:Name="cmbCategory" Height="30" Width="150" SelectedItem="{Binding SelectedCategory}" IsHitTestVisible="False"/>
             </GroupBox>
             <GroupBox Header="Group:" BorderThickness="0">
-                <ComboBox x:Name="cmbGroup" Height="30" Width="150"/>
+                <ComboBox x:Name="cmbGroup" Height="30" Width="150" SelectedItem="{Binding GroupName}"/>
             </GroupBox>
         </StackPanel>
         <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Left">           
