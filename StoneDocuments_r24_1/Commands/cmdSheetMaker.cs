@@ -44,13 +44,15 @@ namespace StoneDocuments_r24_1
             List<clsWrapperTBlockType> sortedList = tblockTypeList.OrderBy(o => o.FamilyAndType).ToList();
 
             List<string> catList = Utils.GetAllSheetCategoriesByName(curDoc, "Category");
+            catList.Sort();
          
             List<string> grpList = Utils.GetAllShhetGroupsByName(curDoc, "Group");
+            grpList.Sort();
                        
             // open form
             frmSheetMaker curForm = new frmSheetMaker(sortedList, catList, grpList, Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
             {
-                Width = 800,
+                Width = 880,
                 Height = 450,
                 WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
                 Topmost = true,

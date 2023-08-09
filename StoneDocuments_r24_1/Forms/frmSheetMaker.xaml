@@ -58,7 +58,6 @@
             <Button x:Name="btnAddCat" Width="90" Height="30" Content="Add Category" Margin="5,0,0,0" Click="btnAddCat_Click"/>
             <TextBox x:Name="tbxAddGrp" Width="130" Height="30" Margin="10,0,0,0"/>
             <Button x:Name="btnAddGrp" Width="90" Height="30" Margin="5,0,0,0" Content="Add Group" Click="btnAddGrp_Click"/>
-
         </StackPanel>        
         <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Width="90" Content="OK" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
