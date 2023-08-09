@@ -41,14 +41,16 @@
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60">
             <GroupBox Header="Titleblock:" BorderThickness="0">
                 <ComboBox x:Name="cmbTitleblock" Height="30" Width="150" SelectedItem="{Binding SelectedTitleBlock}" 
-                                        SelectedValuePath="TitleblockType"
+                                        ItemsSource="{Binding Types}"
                                         DisplayMemberPath="FamilyAndType"/>
             </GroupBox>
             <GroupBox Header="Category:" BorderThickness="0">
-                <ComboBox x:Name="cmbCategory" Height="30" Width="150" SelectedItem="{Binding SelectedCategory}" IsHitTestVisible="False"/>
+                <ComboBox x:Name="cmbCategory" Height="30" Width="150" 
+                          ItemsSource="{Binding CategoryData}"/>
             </GroupBox>
             <GroupBox Header="Group:" BorderThickness="0">
-                <ComboBox x:Name="cmbGroup" Height="30" Width="150" SelectedItem="{Binding GroupName}"/>
+                <ComboBox x:Name="cmbGroup" Height="30" Width="150" 
+                          ItemsSource="{Binding GroupData}"/>
             </GroupBox>
         </StackPanel>
         <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Left">           
