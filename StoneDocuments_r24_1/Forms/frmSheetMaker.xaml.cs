@@ -35,10 +35,6 @@ namespace StoneDocuments_r24_1
         ObservableCollection<clsWrapperTBlockType> Types { get; set; }
         ObservableCollection<string> GroupData { get; set; }
 
-        public FamilySymbol SelectedTitleBlock { get; set; }
-        public string SelectedCategory { get; set; }
-        public string GroupName { get; set; }
-
         public List<Element> elemList;
 
         public frmSheetMaker(List<clsWrapperTBlockType> typeList, List<string> CategoryList, List<string> GroupList, List<View> ViewList, List<ViewSchedule> ScheduleList)
@@ -63,17 +59,18 @@ namespace StoneDocuments_r24_1
         
         internal FamilySymbol GetComboBoxTitleblock()
         {
-            return SelectedTitleBlock;
+            clsWrapperTBlockType selectedItem = cmbTitleblock.SelectedValue as clsWrapperTBlockType;
+            return selectedItem.TitleblockType;
         }
 
         internal string GetComboBoxCategory()
         { 
-            return SelectedCategory;
+            return cmbCategory.SelectedValue as string;
         }
 
         internal string GetComboBoxGroup()
         {
-            return GroupName;
+            return cmbGroup.SelectedValue as string;
         }
 
         public List<clsSheetData> GetSheetData()
