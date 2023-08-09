@@ -195,7 +195,7 @@ namespace StoneDocuments_r24_1
                 m_catNames.Add(catName);
             }
 
-            List<string> m_distinctList = m_catNames.Distinct().ToList();
+            List<string> m_distinctList = m_catNames.Distinct().ToList();           
 
             return m_distinctList;
         }

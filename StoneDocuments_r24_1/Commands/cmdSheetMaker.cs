@@ -44,7 +44,7 @@ namespace StoneDocuments_r24_1
             List<clsWrapperTBlockType> sortedList = tblockTypeList.OrderBy(o => o.FamilyAndType).ToList();
 
             List<string> catList = Utils.GetAllSheetCategoriesByName(curDoc, "Category");
-
+         
             List<string> grpList = Utils.GetAllShhetGroupsByName(curDoc, "Group");
                        
             // open form
