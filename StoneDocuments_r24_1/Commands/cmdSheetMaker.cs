@@ -44,11 +44,15 @@ namespace StoneDocuments_r24_1
             List<clsWrapperTBlockType> sortedList = tblockTypeList.OrderBy(o => o.FamilyAndType).ToList();
 
             List<string> catList = Utils.GetAllSheetCategoriesByName(curDoc, "Category");
+            catList.Sort();
+         
+            List<string> grpList = Utils.GetAllShhetGroupsByName(curDoc, "Group");
+            grpList.Sort();
                        
             // open form
-            frmSheetMaker curForm = new frmSheetMaker(sortedList, catList, Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
+            frmSheetMaker curForm = new frmSheetMaker(sortedList, catList, grpList, Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
             {
-                Width = 800,
+                Width = 880,
                 Height = 450,
                 WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
                 Topmost = true,
@@ -69,13 +73,13 @@ namespace StoneDocuments_r24_1
                         {
                             ViewSheet newSheet;
 
-                            newSheet = ViewSheet.Create(curDoc, curData.SelectedTitleBlock.Id);
+                            newSheet = ViewSheet.Create(curDoc, curForm.GetComboBoxTitleblock().Id);
 
                             newSheet.SheetNumber = curData.SheetNumber.ToUpper();
                             newSheet.Name = curData.SheetName.ToUpper();
 
-                            string newCategory = curData.SelectedCategory;
-                            string newGroup = curData.GroupName;
+                            string newCategory = curForm.GetComboBoxCategory();
+                            string newGroup = curForm.GetComboBoxGroup();
 
                             if (curData.SelectedView != null)
                             {
@@ -87,12 +91,12 @@ namespace StoneDocuments_r24_1
                                 ScheduleSheetInstance curSSI = ScheduleSheetInstance.Create(curDoc, newSheet.Id, curData.SelectedSchedule.Id, new XYZ(.25,.65,0));
                             }
 
-                            if (curData.SelectedCategory != null)
+                            if (curForm.GetComboBoxCategory() != null)
                             {
                                 Utils.SetParameterByName(newSheet, "Category", newCategory);
                             }
 
-                            if(curData.GroupName != null)
+                            if(curForm.GetComboBoxGroup() != null)
                             {
                                 Utils.SetParameterByName(newSheet, "Group", newGroup);
                             }

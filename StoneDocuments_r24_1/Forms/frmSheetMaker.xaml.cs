@@ -32,27 +32,51 @@ namespace StoneDocuments_r24_1
         ObservableCollection<View> ViewData { get; set; }
         ObservableCollection<ViewSchedule> ScheduleData { get; set; }
         ObservableCollection<string> CategoryData { get; set; }
-        ObservableCollection<clsWrapperTBlockType> Types { get; set; }        
-        
+        ObservableCollection<clsWrapperTBlockType> Types { get; set; }
+        ObservableCollection<string> GroupData { get; set; }
+
         public List<Element> elemList;
 
-        public frmSheetMaker(List<clsWrapperTBlockType> typeList, List<string> CategoryList, List<View> ViewList, List<ViewSchedule> ScheduleList)
+        public frmSheetMaker(List<clsWrapperTBlockType> typeList, List<string> CategoryList, List<string> GroupList, List<View> ViewList, List<ViewSchedule> ScheduleList)
         {
             InitializeComponent();
 
             SheetList = new ObservableCollection<clsSheetData>();
             Types = new ObservableCollection<clsWrapperTBlockType>(typeList);
             CategoryData = new ObservableCollection<string>(CategoryList);
+            GroupData = new ObservableCollection<string>(GroupList);
             ViewData = new ObservableCollection<View>(ViewList);
-            ScheduleData = new ObservableCollection<ViewSchedule>(ScheduleList);          
+            ScheduleData = new ObservableCollection<ViewSchedule>(ScheduleList);
 
-           
+
             sheetGrid.ItemsSource = SheetList;
             cmbTitleblock.ItemsSource = Types;
             cmbCategory.ItemsSource = CategoryData;
+            cmbGroup.ItemsSource = GroupData;
             cmbViews.ItemsSource = ViewData;
             cmbSchedules.ItemsSource = ScheduleData;
-        }        
+        }
+        
+        internal FamilySymbol GetComboBoxTitleblock()
+        {
+            clsWrapperTBlockType selectedItem = cmbTitleblock.SelectedValue as clsWrapperTBlockType;
+            return selectedItem.TitleblockType;
+        }
+
+        internal string GetComboBoxCategory()
+        { 
+            return cmbCategory.SelectedValue as string;
+        }
+
+        internal string GetComboBoxGroup()
+        {
+            return cmbGroup.SelectedValue as string;
+        }
+
+        public List<clsSheetData> GetSheetData()
+        {
+            return SheetList.ToList();
+        }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -78,6 +102,11 @@ namespace StoneDocuments_r24_1
             CategoryData.Add(tbxAddCat.Text);
         }
 
+        private void btnAddGrp_Click(object sender, RoutedEventArgs e)
+        {
+            GroupData.Add(tbxAddGrp.Text);
+        }
+
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
@@ -88,16 +117,11 @@ namespace StoneDocuments_r24_1
         {
             this.DialogResult = false;
             this.Close();
-        }
-
-        public List<clsSheetData> GetSheetData()
-        {
-            return SheetList.ToList();
-        }
+        }       
 
         private void btnHelp_Click(object sender, RoutedEventArgs e)
         {
             Process.Start("https://lifestyle-usa-design.atlassian.net/l/cp/eL0qinyA");
-        }
+        }        
     }
 }
