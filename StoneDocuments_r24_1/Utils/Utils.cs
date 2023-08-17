@@ -183,12 +183,34 @@ namespace StoneDocuments_r24_1
             List<ViewSchedule > m_allSchedList = GetAllSchedules(curDoc);
 
             // get all the sheet schedule instances
-            //List<ViewSchedule> m_usedSchedList = GetAllSchedulesOnSheet(curDoc);
+            List<ViewSchedule> m_usedSchedList = GetAllSchedulesOnSheets(curDoc);
 
             // compare the names and create a unique list
 
             // return the list
             throw new NotImplementedException();
+        }
+
+        private static List<ViewSchedule> GetAllSchedulesOnSheets(Document curDoc)
+        {
+            List<ViewSheet> m_sheetList = GetAllSheets(curDoc);
+
+            List<ViewSchedule> m_sheetSchedList = new List<ViewSchedule>();
+
+            foreach (ViewSheet curSheet in m_sheetList)
+            {
+                FilteredElementCollector curCollector = new FilteredElementCollector(curDoc, curSheet.Id)
+                    .OfClass(typeof(ScheduleSheetInstance));
+
+                //loop through views and check if schedule - if so then put into schedule list
+                foreach (ScheduleSheetInstance curView in curCollector)
+                {
+                    ViewSchedule curSched = curDoc.GetElement(curView.ScheduleId) as ViewSchedule;
+                    m_sheetSchedList.Add(curSched);
+                }
+            }
+
+            return m_sheetSchedList;
         }
 
         #endregion
@@ -248,6 +270,16 @@ namespace StoneDocuments_r24_1
             return m_sheets;
         }
 
+        internal static List<ViewSchedule> GetSchedulesToUse(Document curDoc)
+        {
+            // get all the schedules
+
+            // get all the sheet schedule instances
+
+
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         #region Views
@@ -303,6 +335,8 @@ namespace StoneDocuments_r24_1
 
             return m_returnList;
         }
+
+       
 
         #endregion
 
