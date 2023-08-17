@@ -48,9 +48,9 @@ namespace StoneDocuments_r24_1
          
             List<string> grpList = Utils.GetAllShhetGroupsByName(curDoc, "Group");
             grpList.Sort();
-                       
+
             // open form
-            frmSheetMaker curForm = new frmSheetMaker(sortedList, catList, grpList, Utils.GetViews(curDoc), Utils.GetSchedules(curDoc))
+            frmSheetMaker curForm = new frmSheetMaker(sortedList, catList, grpList, Utils.GetViews(curDoc), Utils.GetSchedulesNotUsed(curDoc))
             {
                 Width = 880,
                 Height = 450,

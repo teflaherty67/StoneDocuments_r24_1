@@ -151,7 +151,7 @@ namespace StoneDocuments_r24_1
             return schedList;
         }
 
-        internal static List<ViewSchedule> GetSchedules(Document curDoc)
+        internal static List<ViewSchedule> GetAllSchedules(Document curDoc)
         {
             List<ViewSchedule> m_schedList = new List<ViewSchedule>();
 
@@ -175,6 +175,20 @@ namespace StoneDocuments_r24_1
             }
 
             return m_schedList;
+        }
+
+        internal static List<ViewSchedule> GetSchedulesNotUsed(Document curDoc)
+        {
+            // get all the schedules in the project
+            List<ViewSchedule > m_allSchedList = GetAllSchedules(curDoc);
+
+            // get all the sheet schedule instances
+            //List<ViewSchedule> m_usedSchedList = GetAllSchedulesOnSheet(curDoc);
+
+            // compare the names and create a unique list
+
+            // return the list
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -289,8 +303,6 @@ namespace StoneDocuments_r24_1
 
             return m_returnList;
         }
-
-        
 
         #endregion
 
