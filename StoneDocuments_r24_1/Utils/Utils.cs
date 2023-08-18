@@ -175,42 +175,82 @@ namespace StoneDocuments_r24_1
             }
 
             return m_schedList;
-        }
+        }       
 
-        internal static List<ViewSchedule> GetSchedulesNotUsed(Document curDoc)
+        
+        internal static List<string> GetAllScheduleNames(Document curDoc)
         {
-            // get all the schedules in the project
-            List<ViewSchedule > m_allSchedList = GetAllSchedules(curDoc);
+            List<ViewSchedule> m_schedList = GetAllSchedules(curDoc);
 
-            // get all the sheet schedule instances
-            List<ViewSchedule> m_usedSchedList = GetAllSchedulesOnSheets(curDoc);
+            List<string> m_Names = new List<string>();
 
-            // compare the names and create a unique list
-
-            // return the list
-            throw new NotImplementedException();
-        }
-
-        private static List<ViewSchedule> GetAllSchedulesOnSheets(Document curDoc)
-        {
-            List<ViewSheet> m_sheetList = GetAllSheets(curDoc);
-
-            List<ViewSchedule> m_sheetSchedList = new List<ViewSchedule>();
-
-            foreach (ViewSheet curSheet in m_sheetList)
+            foreach (ViewSchedule curSched in m_schedList)
             {
-                FilteredElementCollector curCollector = new FilteredElementCollector(curDoc, curSheet.Id)
-                    .OfClass(typeof(ScheduleSheetInstance));
+                m_Names.Add(curSched.Name);
+            }
 
-                //loop through views and check if schedule - if so then put into schedule list
-                foreach (ScheduleSheetInstance curView in curCollector)
+            return m_Names;
+        }        
+
+        internal static List<string> GetAllSSINames(Document curDoc)
+        {
+            FilteredElementCollector m_colSSI = new FilteredElementCollector(curDoc);
+            m_colSSI.OfClass(typeof(ScheduleSheetInstance));
+
+            List<string> m_returnList = new List<string>();
+
+            foreach (ScheduleSheetInstance curInstance in m_colSSI)
+            {
+                string schedName = curInstance.Name as string;
+                m_returnList.Add(schedName);
+            }
+
+            return m_returnList;
+        }
+
+        internal static List<string> GetSchedulesNotUsed(List<string> schedNames, List<string> schedInstances)
+        {
+            IEnumerable<string> m_returnList;
+
+            m_returnList = schedNames.Except(schedInstances);
+
+            return m_returnList.ToList();
+        }
+
+        internal static List<ViewSchedule> GetSchedulesToUse(Document curDoc, List<string> schedNotUsed)
+        {
+            List<ViewSchedule> m_returnList = new List<ViewSchedule>();
+
+            foreach (string schedName in schedNotUsed)
+            {
+                string curName = schedName;
+
+                ViewSchedule curSched = GetViewScheduleByName(curDoc, curName);
+
+                if (curSched != null)
                 {
-                    ViewSchedule curSched = curDoc.GetElement(curView.ScheduleId) as ViewSchedule;
-                    m_sheetSchedList.Add(curSched);
+                    m_returnList.Add(curSched);
                 }
             }
 
-            return m_sheetSchedList;
+            return m_returnList;
+        }
+
+        internal static ViewSchedule GetViewScheduleByName(Document curDoc, string viewScheduleName)
+        {
+            List<ViewSchedule> m_SchedList = GetAllSchedules(curDoc);
+
+            ViewSchedule m_viewSchedNotFound = null;
+
+            foreach (ViewSchedule curViewSched in m_SchedList)
+            {
+                if (curViewSched.Name == viewScheduleName)
+                {
+                    return curViewSched;
+                }
+            }
+
+            return m_viewSchedNotFound;
         }
 
         #endregion
@@ -236,7 +276,7 @@ namespace StoneDocuments_r24_1
             return m_distinctList;
         }
 
-        internal static List<string> GetAllShhetGroupsByName(Document curDoc, string paramName)
+        internal static List<string> GetAllSheetGroupsByName(Document curDoc, string paramName)
         {
             List<ViewSheet> m_sheetList = GetAllSheets(curDoc);
 
@@ -268,17 +308,7 @@ namespace StoneDocuments_r24_1
             }
 
             return m_sheets;
-        }
-
-        internal static List<ViewSchedule> GetSchedulesToUse(Document curDoc)
-        {
-            // get all the schedules
-
-            // get all the sheet schedule instances
-
-
-            throw new NotImplementedException();
-        }
+        }       
 
         #endregion
 
@@ -336,9 +366,6 @@ namespace StoneDocuments_r24_1
             return m_returnList;
         }
 
-       
-
         #endregion
-
     }
 }

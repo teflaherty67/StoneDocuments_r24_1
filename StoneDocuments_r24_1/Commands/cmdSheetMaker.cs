@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Windows.Controls;
 
 #endregion
 
@@ -43,14 +44,30 @@ namespace StoneDocuments_r24_1
             // sort list by family and type
             List<clsWrapperTBlockType> sortedList = tblockTypeList.OrderBy(o => o.FamilyAndType).ToList();
 
+            // create list for category names
             List<string> catList = Utils.GetAllSheetCategoriesByName(curDoc, "Category");
             catList.Sort();
          
-            List<string> grpList = Utils.GetAllShhetGroupsByName(curDoc, "Group");
+            // create a list for group names
+            List<string> grpList = Utils.GetAllSheetGroupsByName(curDoc, "Group");
             grpList.Sort();
 
+            // get a list of all the schedules not already on a sheet
+
+            // create a list of all the schedules by name
+            List<string> schedNames = Utils.GetAllScheduleNames(curDoc);
+
+            // create a list of all schedules already on a sheet
+            List<string> schedInstances = Utils.GetAllSSINames(curDoc);
+
+            // compare the 2 lists and create a list of schedules not used by name
+            List<string> schedNotUsed = Utils.GetSchedulesNotUsed(schedNames, schedInstances);
+
+            // convert the list of schedule names to a list of View Schedules
+            List<ViewSchedule> schedToUse = Utils.GetSchedulesToUse(curDoc, schedNotUsed);
+
             // open form
-            frmSheetMaker curForm = new frmSheetMaker(sortedList, catList, grpList, Utils.GetViews(curDoc), Utils.GetSchedulesToUse(curDoc))
+            frmSheetMaker curForm = new frmSheetMaker(sortedList, catList, grpList, Utils.GetViews(curDoc), schedToUse)
             {
                 Width = 880,
                 Height = 450,
