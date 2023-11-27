@@ -61,11 +61,15 @@
     <Compile Include="Classes\clsButtonDataClass.cs" />
     <Compile Include="Classes\clsSheetData.cs" />
     <Compile Include="Classes\clsWrapperTBlockType.cs" />
+    <Compile Include="Commands\cmdScheduleSwap.cs" />
     <Compile Include="Commands\cmdCheck.cs" />
     <Compile Include="Commands\cmdReset.cs" />
     <Compile Include="Commands\cmdSheetMaker.cs" />
     <Compile Include="Forms\frmCheck.xaml.cs">
       <DependentUpon>frmCheck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmScheduleSwap.xaml.cs">
+      <DependentUpon>frmScheduleSwap.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -92,6 +96,10 @@
     <Page Include="Forms\frmCheck.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\frmScheduleSwap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\frmSheetMaker.xaml">
       <SubType>Designer</SubType>
