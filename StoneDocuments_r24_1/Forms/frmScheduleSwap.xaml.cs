@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autodesk.Revit.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace StoneDocuments_r24_1.Forms
     /// </summary>
     public partial class frmScheduleSwap :Window
     {
-        public frmScheduleSwap()
+        public frmScheduleSwap(List<ViewSchedule> ScheduleList)
         {
             InitializeComponent();
         }

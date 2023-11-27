@@ -151,6 +151,16 @@ namespace StoneDocuments_r24_1
             return schedList;
         }
 
+        internal static ScheduleSheetInstance GetScheduleOnSheet(Document curDoc, ViewSheet curSheet)
+        {
+            FilteredElementCollector m_colSSI = new FilteredElementCollector(curDoc, curSheet.Id)
+                .OfClass(typeof(ScheduleSheetInstance));
+
+            ScheduleSheetInstance curSchedule = m_colSSI.First() as ScheduleSheetInstance;
+
+            return curSchedule;
+        }
+
         internal static List<ViewSchedule> GetAllSchedules(Document curDoc)
         {
             List<ViewSchedule> m_schedList = new List<ViewSchedule>();
@@ -365,6 +375,8 @@ namespace StoneDocuments_r24_1
 
             return m_returnList;
         }
+
+        
 
         #endregion
     }
