@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RevitAddIns>  
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command Schedule Swap</Text>
+    <Description>Some description for ElevDesignation</Description>
+    <Assembly>StoneDocuments_r24_1.dll</Assembly>
+    <FullClassName>StoneDocuments_r24_1.cmdScheduleSwap</FullClassName>
+    <ClientId>b320d297-c73f-47d1-b647-6c1c974ff58f</ClientId>
+    <VendorId>Rourke-Burke and Associates</VendorId>
+    <VendorDescription>Rourke-Burke and Associates, www.lusad.com</VendorDescription>
+  </AddIn>
   <AddIn Type="Application">
     <Name>Application StoneDocuments_r24_1</Name>
     <Assembly>StoneDocuments_r24_1.dll</Assembly>

@@ -70,7 +70,7 @@ namespace StoneDocuments_r24_1
 
             // set some variables
             ElementId curSheetId = curSheet.Id;
-            ViewSchedule newSched = newSched.Id;
+            //ViewSchedule newSched = newSched.Id;
             
             // get the current schedule & it's location
             ScheduleSheetInstance curSched = Utils.GetScheduleOnSheet(curDoc, curSheet);
@@ -81,7 +81,7 @@ namespace StoneDocuments_r24_1
             curDoc.Delete(curSched.Id);
 
             // add the new schedule at the same location point
-            ScheduleSheetInstance newSSI = ScheduleSheetInstance.Create(curDoc, curSheetId, newSched.Id, schedLoc);
+            //ScheduleSheetInstance newSSI = ScheduleSheetInstance.Create(curDoc, curSheetId, newSched.Id, schedLoc);
 
 
             return Result.Succeeded;
