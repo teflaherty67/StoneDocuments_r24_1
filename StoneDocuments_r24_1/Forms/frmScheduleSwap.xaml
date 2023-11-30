@@ -5,15 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StoneDocuments_r24_1.Forms"
              mc:Ignorable="d" 
-             d:DesignHeight="120" d:DesignWidth="400" Title="Schedule Swapper">
+             d:DesignHeight="125" d:DesignWidth="400"  Title="Schedule Swapper" MinWidth="375" MinHeight="125">
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>            
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Label Content="Select new schedule:" Grid.Row="0" VerticalAlignment="Center"/>
-        <ComboBox x:Name="cmbSchedules" Width="250" HorizontalAlignment="Right" DisplayMemberPath="Name"/>
+        <StackPanel Orientation="Horizontal">
+            <GroupBox Header="Select new schedule:" BorderThickness="0">
+                <ComboBox x:Name="cmbNewSchedules" DisplayMemberPath="Name" HorizontalAlignment="Left" Width="175"/>
+            </GroupBox>
+            <GroupBox Header="Schedule to replace:" BorderThickness="0">
+                <ComboBox x:Name="cmbCurSchedules" DisplayMemberPath="Name" HorizontalAlignment="Right" Width="175"/>
+            </GroupBox>
+        </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Width="90" Content="OK" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
             <Button x:Name="btnCancel" Width="90" Content="Cancel" Height="30" Click="btnCancel_Click" Margin="0,0,10,0"/>            

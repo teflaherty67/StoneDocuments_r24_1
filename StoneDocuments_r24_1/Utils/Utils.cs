@@ -376,7 +376,12 @@ namespace StoneDocuments_r24_1
             return m_returnList;
         }
 
-        
+        internal static List<ViewSchedule> GetAllViewSchedules(Document curDoc)
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         #endregion
     }
