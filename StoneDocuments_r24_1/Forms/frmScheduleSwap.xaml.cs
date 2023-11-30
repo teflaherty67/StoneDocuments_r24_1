@@ -21,16 +21,22 @@ namespace StoneDocuments_r24_1.Forms
     /// Interaction logic for frmScheduleSwap.xaml
     /// </summary>
     public partial class frmScheduleSwap :Window
-    {
-        ObservableCollection<ViewSchedule> ScheduleData { get; set; }
-
+    {       
         public frmScheduleSwap(List<ViewSchedule> ScheduleList)
         {
             InitializeComponent();
 
-            ScheduleData = new ObservableCollection<ViewSchedule>(ScheduleList);
+            foreach (ViewSchedule curSched in ScheduleList)
+            {
+                cmbSchedules.Items.Add(curSched);
+            }
 
-            cmbSchedules.DataContext = ScheduleData;
+            cmbSchedules.SelectedIndex = 0;
+        }
+
+        public ViewSchedule GetComboBoxViewScheduleSelectedItem()
+        {
+            return cmbSchedules.SelectedItem as ViewSchedule;
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)

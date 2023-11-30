@@ -70,19 +70,25 @@ namespace StoneDocuments_r24_1
 
             // set some variables
             ElementId curSheetId = curSheet.Id;
-            //ViewSchedule newSched = newSched.Id;
-            
+            ViewSchedule newSched = curForm.cmbSchedules.SelectedItem as ViewSchedule;
+
             // get the current schedule & it's location
             ScheduleSheetInstance curSched = Utils.GetScheduleOnSheet(curDoc, curSheet);
-
             XYZ schedLoc = curSched.Point;
 
-            // delete the current schedule
-            curDoc.Delete(curSched.Id);
+            // create & start a transaction
+            using (Transaction t = new Transaction(curDoc))
+            {
+                t.Start("Swap Schedules");
 
-            // add the new schedule at the same location point
-            //ScheduleSheetInstance newSSI = ScheduleSheetInstance.Create(curDoc, curSheetId, newSched.Id, schedLoc);
+                // delete the current schedule
+                curDoc.Delete(curSched.Id);
 
+                // add the new schedule at the same location point
+                ScheduleSheetInstance newSSI = ScheduleSheetInstance.Create(curDoc, curSheetId, newSched.Id, schedLoc);
+
+                t.Commit();
+            }           
 
             return Result.Succeeded;
         }

@@ -13,7 +13,7 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Label Content="Select new schedule:" Grid.Row="0" VerticalAlignment="Center"/>
-        <ComboBox x:Name="cmbSchedules" Width="250" HorizontalAlignment="Right" DataContext="ScheduleData"/>
+        <ComboBox x:Name="cmbSchedules" Width="250" HorizontalAlignment="Right" DisplayMemberPath="Name"/>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Width="90" Content="OK" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
             <Button x:Name="btnCancel" Width="90" Content="Cancel" Height="30" Click="btnCancel_Click" Margin="0,0,10,0"/>            
