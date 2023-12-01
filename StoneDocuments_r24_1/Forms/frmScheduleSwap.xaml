@@ -13,12 +13,12 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <GroupBox Header="Select new schedule:" BorderThickness="0">
-                <ComboBox x:Name="cmbNewSchedules" DisplayMemberPath="Name" HorizontalAlignment="Left" Width="175"/>
-            </GroupBox>
             <GroupBox Header="Schedule to replace:" BorderThickness="0">
                 <ComboBox x:Name="cmbCurSchedules" DisplayMemberPath="Name" HorizontalAlignment="Right" Width="175"/>
             </GroupBox>
+            <GroupBox Header="Select new schedule:" BorderThickness="0">
+                <ComboBox x:Name="cmbNewSchedules" DisplayMemberPath="Name" HorizontalAlignment="Left" Width="175"/>
+            </GroupBox>            
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Width="90" Content="OK" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>

@@ -78,10 +78,8 @@ namespace StoneDocuments_r24_1
             ViewSchedule newSched = curForm.cmbNewSchedules.SelectedItem as ViewSchedule;
 
             // get the current schedule & it's location
-            ScheduleSheetInstance curSchedule = Utils.GetScheduleOnSheet(curDoc, curSheet);
-            LocationPoint schedPoint = curSched.Location as LocationPoint;
-
-            XYZ schedLoc = schedPoint.Point;
+            ScheduleSheetInstance curSchedule = Utils.GetScheduleOnSheetByName(curDoc, curSheet, curSched);
+            XYZ schedLoc = curSchedule.Point;
 
             // create & start a transaction
             using (Transaction t = new Transaction(curDoc))
@@ -99,6 +97,5 @@ namespace StoneDocuments_r24_1
 
             return Result.Succeeded;
         }
-    }
-    
+    }    
 }
