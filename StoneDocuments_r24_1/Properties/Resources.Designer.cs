@@ -103,6 +103,26 @@ namespace StoneDocuments_r24_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ScheduleSwap_16 {
+            get {
+                object obj = ResourceManager.GetObject("ScheduleSwap_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ScheduleSwap_32 {
+            get {
+                object obj = ResourceManager.GetObject("ScheduleSwap_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SheetMaker_16 {
             get {
                 object obj = ResourceManager.GetObject("SheetMaker_16", resourceCulture);

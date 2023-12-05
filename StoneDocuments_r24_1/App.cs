@@ -38,14 +38,18 @@ namespace StoneDocuments_r24_1
             clsButtonDataClass btnReset = new clsButtonDataClass("toolReset",
                 "Reset\rParts", cmdReset.GetMethod(), Properties.Resources.Clear_32,
                 Properties.Resources.Clear_16, "Clears surface foreground color override.");
-            clsButtonDataClass btnSheets = new clsButtonDataClass("toolSheetMaker",
+            clsButtonDataClass btnSchedSwap = new clsButtonDataClass("toolSscheduleSwapper",
+                "Schedule\rSwapper", cmdScheduleSwap.GetMethod(), Properties.Resources.ScheduleSwap_32,
+                Properties.Resources.ScheduleSwap_16, "Schedule Swapper.");
+            clsButtonDataClass btnSheetMakr = new clsButtonDataClass("toolSheetMaker",
                 "Sheet\rMaker", cmdSheetMaker.GetMethod(), Properties.Resources.SheetMaker_32,
                 Properties.Resources.SheetMaker_16, "Batch sheet creator.");
 
             // 4. Create buttons
             PushButton btnCheckParts = panel01.AddItem(btnCheck.Data) as PushButton;
             PushButton btnResetParts = panel01.AddItem(btnReset.Data) as PushButton;
-            PushButton btnSheetMaker = panel02.AddItem(btnSheets.Data) as PushButton;
+            PushButton btnScheduleSwap = panel02.AddItem(btnSchedSwap.Data) as PushButton;
+            PushButton btnSheetMaker = panel02.AddItem(btnSheetMakr.Data) as PushButton;
             return Result.Succeeded;
         }
 

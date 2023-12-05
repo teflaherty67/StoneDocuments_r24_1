@@ -92,6 +92,11 @@ namespace StoneDocuments_r24_1
 
             return Result.Succeeded;
         }
-    }
-    
+
+        public static String GetMethod()
+        {
+            var method = MethodBase.GetCurrentMethod().DeclaringType?.FullName;
+            return method;
+        }
+    }    
 }
