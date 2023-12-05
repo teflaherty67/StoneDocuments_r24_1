@@ -60,7 +60,7 @@ namespace StoneDocuments_r24_1
                 t.Start("Swap Schedules");
 
                 // delete the current schedule
-                curDoc.Delete(curSched.Id);
+                curDoc.Delete(curSchedule.Id);
 
                 // add the new schedule at the same location point
                 ScheduleSheetInstance newSSI = ScheduleSheetInstance.Create(curDoc, curSheetId, newSched.Id, schedLoc);
@@ -69,7 +69,7 @@ namespace StoneDocuments_r24_1
             }
         }
 
-        static bool DoesSheetHaveSchedule(Document curDoc)
+        static bool SheetHasSchedule(Document curDoc)
         {
 
         }
