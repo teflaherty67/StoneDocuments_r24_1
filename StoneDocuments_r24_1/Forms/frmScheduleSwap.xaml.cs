@@ -22,21 +22,28 @@ namespace StoneDocuments_r24_1.Forms
     /// </summary>
     public partial class frmScheduleSwap :Window
     {       
-        public frmScheduleSwap(List<ViewSchedule> ScheduleList)
+        public frmScheduleSwap(List<ViewSchedule> newScheduleList, List<ViewSchedule> curScheduleList)
         {
             InitializeComponent();
 
-            foreach (ViewSchedule curSched in ScheduleList)
+            foreach (ViewSchedule curSched in newScheduleList)
             {
-                cmbSchedules.Items.Add(curSched);
+                cmbNewSchedules.Items.Add(curSched);
             }
 
-            cmbSchedules.SelectedIndex = 0;
+            cmbNewSchedules.SelectedIndex = 0;
+
+            foreach (ViewSchedule curSched in curScheduleList)
+            {
+                cmbCurSchedules.Items.Add(curSched);
+            }
+
+            cmbCurSchedules.SelectedIndex = 0;
         }
 
         public ViewSchedule GetComboBoxViewScheduleSelectedItem()
         {
-            return cmbSchedules.SelectedItem as ViewSchedule;
+            return cmbNewSchedules.SelectedItem as ViewSchedule;
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)

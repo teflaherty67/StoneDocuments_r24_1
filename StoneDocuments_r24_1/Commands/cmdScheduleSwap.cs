@@ -11,6 +11,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Controls;
+using Forms = System.Windows.Forms;
+
 
 #endregion
 
@@ -31,9 +33,8 @@ namespace StoneDocuments_r24_1
 
             // put any code needed for the form here
 
-            // create a list of all the schedules in the project
-            List<string> namesSchedules = Utils.GetAllScheduleNames(curDoc);
-            List<ViewSchedule> schedNames = Utils.GetSchedulesToUse(curDoc, namesSchedules);            
+            // get all the schedules in the project
+            List<ViewSchedule> schedNames = Utils.GetAllSchedules(curDoc);            
 
             // check current view - make sure it's a sheet
             ViewSheet curSheet;
@@ -47,7 +48,7 @@ namespace StoneDocuments_r24_1
                 return Result.Failed;
             }
 
-            // get schedule from sheet
+            // get all schedules on sheet
             List<ViewSchedule> schedList = Utils.GetAllSchedulesOnSheet(curDoc, curSheet);
 
             // check if sheet has schedule
@@ -58,23 +59,27 @@ namespace StoneDocuments_r24_1
             }
 
             // open form
-            frmScheduleSwap curForm = new frmScheduleSwap(schedNames)
+            frmScheduleSwap curForm = new frmScheduleSwap(schedNames, schedList)
             {
-                Width = 800,
-                Height = 450,
+                Width = 450,
+                Height = 150,
                 WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
                 Topmost = true,
-            };
+            };           
 
-            curForm.ShowDialog();
+            if (curForm.ShowDialog() == false)
+            {
+                return Result.Failed;
+            }
 
             // set some variables
             ElementId curSheetId = curSheet.Id;
-            ViewSchedule newSched = curForm.cmbSchedules.SelectedItem as ViewSchedule;
+            ViewSchedule curSched = curForm.cmbCurSchedules.SelectedItem as ViewSchedule;
+            ViewSchedule newSched = curForm.cmbNewSchedules.SelectedItem as ViewSchedule;
 
             // get the current schedule & it's location
-            ScheduleSheetInstance curSched = Utils.GetScheduleOnSheet(curDoc, curSheet);
-            XYZ schedLoc = curSched.Point;
+            ScheduleSheetInstance curSchedule = Utils.GetScheduleOnSheetByName(curDoc, curSheet, curSched);
+            XYZ schedLoc = curSchedule.Point;
 
             // create & start a transaction
             using (Transaction t = new Transaction(curDoc))

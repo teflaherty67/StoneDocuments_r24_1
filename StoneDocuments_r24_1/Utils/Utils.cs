@@ -149,17 +149,7 @@ namespace StoneDocuments_r24_1
             }
 
             return schedList;
-        }
-
-        internal static ScheduleSheetInstance GetScheduleOnSheet(Document curDoc, ViewSheet curSheet)
-        {
-            FilteredElementCollector m_colSSI = new FilteredElementCollector(curDoc, curSheet.Id)
-                .OfClass(typeof(ScheduleSheetInstance));
-
-            ScheduleSheetInstance curSchedule = m_colSSI.First() as ScheduleSheetInstance;
-
-            return curSchedule;
-        }
+        }       
 
         internal static List<ViewSchedule> GetAllSchedules(Document curDoc)
         {
@@ -185,9 +175,8 @@ namespace StoneDocuments_r24_1
             }
 
             return m_schedList;
-        }       
-
-        
+        }  
+                
         internal static List<string> GetAllScheduleNames(Document curDoc)
         {
             List<ViewSchedule> m_schedList = GetAllSchedules(curDoc);
@@ -261,6 +250,20 @@ namespace StoneDocuments_r24_1
             }
 
             return m_viewSchedNotFound;
+        }
+
+        internal static ScheduleSheetInstance GetScheduleOnSheetByName(Document curDoc, ViewSheet curSheet, ViewSchedule curSched)
+        {
+            FilteredElementCollector m_colSSI = new FilteredElementCollector(curDoc, curSheet.Id)
+                 .OfClass(typeof(ScheduleSheetInstance));
+
+            foreach (ScheduleSheetInstance curSchedule in m_colSSI)
+            {
+                if (curSchedule.Name == curSched.Name)
+                    return curSchedule;
+            }
+
+            return null;
         }
 
         #endregion
@@ -374,9 +377,7 @@ namespace StoneDocuments_r24_1
             }
 
             return m_returnList;
-        }
-
-        
+        }     
 
         #endregion
     }
