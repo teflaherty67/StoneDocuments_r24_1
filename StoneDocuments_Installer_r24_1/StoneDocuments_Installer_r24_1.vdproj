@@ -43,6 +43,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -59,6 +67,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -197,15 +213,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Stone Documents r24.1"
-        "ProductCode" = "8:{9FC8D596-66C6-445C-BCB0-32AE49930F64}"
-        "PackageCode" = "8:{CD8A05AD-290D-4BE9-891B-0519D7B43838}"
+        "ProductCode" = "8:{A4E5D7B4-CC5E-4E4E-8D86-80ADD132268C}"
+        "PackageCode" = "8:{54C7322F-3990-4F86-B21F-52DBBD9ED4D6}"
         "UpgradeCode" = "8:{FE964794-FB04-459A-893F-9C332E3BA26F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:24.1.0"
+        "ProductVersion" = "8:24.2.0"
         "Manufacturer" = "8:RBA, Inc"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
