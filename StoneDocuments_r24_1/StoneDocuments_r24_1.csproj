@@ -61,14 +61,14 @@
     <Compile Include="Classes\clsButtonDataClass.cs" />
     <Compile Include="Classes\clsSheetData.cs" />
     <Compile Include="Classes\clsWrapperTBlockType.cs" />
-    <Compile Include="Commands\cmdScheduleSwap.cs" />
+    <Compile Include="ScheduleSwap\cmdScheduleSwap.cs" />
     <Compile Include="Commands\cmdCheck.cs" />
     <Compile Include="Commands\cmdReset.cs" />
     <Compile Include="Commands\cmdSheetMaker.cs" />
     <Compile Include="Forms\frmCheck.xaml.cs">
       <DependentUpon>frmCheck.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmScheduleSwap.xaml.cs">
+    <Compile Include="ScheduleSwap\frmScheduleSwap.xaml.cs">
       <DependentUpon>frmScheduleSwap.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -76,6 +76,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ScheduleSwap\vmScheduleSwap.cs" />
     <Compile Include="Utils\CommandAvailability.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Utils.cs" />
@@ -99,7 +100,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Forms\frmScheduleSwap.xaml">
+    <Page Include="ScheduleSwap\frmScheduleSwap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,6 +114,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Check\" />
+    <Folder Include="SheetMaker\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

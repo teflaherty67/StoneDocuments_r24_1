@@ -1,4 +1,5 @@
 ﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,23 +22,18 @@ namespace StoneDocuments_r24_1.Forms
     /// Interaction logic for frmScheduleSwap.xaml
     /// </summary>
     public partial class frmScheduleSwap :Window
-    {       
-        public frmScheduleSwap(List<ViewSchedule> newScheduleList, List<ViewSchedule> curScheduleList)
+    {
+        public vmScheduleSwap viewModel;
+        public frmScheduleSwap(UIApplication uiapp)
         {
             InitializeComponent();
 
-            foreach (ViewSchedule curSched in newScheduleList)
-            {
-                cmbNewSchedules.Items.Add(curSched);
-            }
+            viewModel = new vmScheduleSwap(uiapp);
+
+            cmbNewSchedules.ItemsSource = viewModel.viewSchedules;
+            cmbCurSchedules.ItemsSource = viewModel.viewSheetSched;
 
             cmbNewSchedules.SelectedIndex = 0;
-
-            foreach (ViewSchedule curSched in curScheduleList)
-            {
-                cmbCurSchedules.Items.Add(curSched);
-            }
-
             cmbCurSchedules.SelectedIndex = 0;
         }
 
@@ -48,13 +44,12 @@ namespace StoneDocuments_r24_1.Forms
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            viewModel.Run(cmbCurSchedules.SelectedItem as ViewSchedule, cmbNewSchedules.SelectedItem as ViewSchedule);
             this.Close();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
             this.Close();
         }
     }
