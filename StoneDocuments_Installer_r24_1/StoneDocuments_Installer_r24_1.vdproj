@@ -50,6 +50,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -74,6 +82,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -212,7 +228,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Stone Documents r24.1"
+        "ProductName" = "8:Stone Documents r24.2"
         "ProductCode" = "8:{A4E5D7B4-CC5E-4E4E-8D86-80ADD132268C}"
         "PackageCode" = "8:{54C7322F-3990-4F86-B21F-52DBBD9ED4D6}"
         "UpgradeCode" = "8:{FE964794-FB04-459A-893F-9C332E3BA26F}"
@@ -225,7 +241,7 @@
         "Manufacturer" = "8:RBA, Inc"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Stone Documents r24.1"
+        "Title" = "8:Stone Documents r24.2"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Tom E Flaherty"
         "Keywords" = "8:"
@@ -735,7 +751,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7B211008DABA44ABA7568136D36BD398"
             {
-            "SourcePath" = "8:..\\StoneDocuments_r24_1\\obj\\Debug\\StoneDocuments_r24_1.dll"
+            "SourcePath" = "8:..\\StoneDocuments_r24_1\\obj\\Release\\StoneDocuments_r24_1.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9C566D0420FB4612A16F2514009E2CF9"
