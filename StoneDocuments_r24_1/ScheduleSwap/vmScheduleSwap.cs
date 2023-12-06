@@ -69,9 +69,6 @@ namespace StoneDocuments_r24_1
             }
         }
 
-        static bool SheetHasSchedule(Document curDoc)
-        {
-
-        }
+        
     }
 }

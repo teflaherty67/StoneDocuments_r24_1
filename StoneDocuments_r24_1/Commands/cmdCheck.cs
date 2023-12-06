@@ -78,7 +78,6 @@ namespace StoneDocuments_r24_1
                 return Result.Failed;
             }
 
-
             uidoc.ActiveView = curView;
 
             uidoc.Selection.SetElementIds(elemIdList);

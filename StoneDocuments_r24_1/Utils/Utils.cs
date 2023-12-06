@@ -30,12 +30,12 @@ namespace StoneDocuments_r24_1
             List<BuiltInCategory> builtInCats = new List<BuiltInCategory>();
             builtInCats.Add(BuiltInCategory.OST_Parts);
             builtInCats.Add(BuiltInCategory.OST_GenericModel);
+            builtInCats.Add(BuiltInCategory.OST_Assemblies);
 
             ElementMulticategoryFilter filter1 = new ElementMulticategoryFilter(builtInCats);
             finalCollector.WherePasses(filter1);
 
             return finalCollector.ToElements() as List<Element>;
-
         }
 
         internal static List<Element> GetElementsFromView(Document doc, View curView)
@@ -264,6 +264,11 @@ namespace StoneDocuments_r24_1
             }
 
             return null;
+        }
+
+        static bool SheetHasSchedule(Document curDoc)
+        {
+
         }
 
         #endregion
