@@ -21,6 +21,8 @@ namespace StoneDocuments_r24_1
     [Transaction(TransactionMode.Manual)]
     public class cmdScheduleSwap : IExternalCommand
     {
+        public ViewSheet curSheet;
+
         public Result Execute(
           ExternalCommandData commandData,
           ref string message,
@@ -29,7 +31,7 @@ namespace StoneDocuments_r24_1
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Application app = uiapp.Application;
-            Document curDoc = uidoc.Document;
+            Document curDoc = uidoc.Document;            
 
             // check current view - make sure it's a sheet
           
