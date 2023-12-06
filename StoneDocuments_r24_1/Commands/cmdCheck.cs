@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 #endregion
 
@@ -53,9 +54,30 @@ namespace StoneDocuments_r24_1
             List<Element> elemList = Utils.GetElementsFromSchedule(doc, schedList[0]);
             List<ElementId> elemIdList = Utils.GetElementIdsFromList(doc, elemList);
 
+            string userName = uiapp.Application.Username;
+
             // set current view to 3D view
             View curView;
-            curView = Utils.GetViewByName(doc, "{3D}");
+
+            if (doc.IsWorkshared == true)
+                curView = Utils.GetViewByName(doc, "{3D - " + userName + "}");
+            else
+                curView = Utils.GetViewByName(doc, "{3D}");
+
+            if (curView == null)
+            {
+                TaskDialog tdNullView = new TaskDialog("Error");
+                tdNullView.MainIcon = TaskDialogIcon.TaskDialogIconInformation;
+                tdNullView.Title = "Null View";
+                tdNullView.TitleAutoPrefix = false;
+                tdNullView.MainContent = "The default 3D view does not exist. Please create it and set the properties as required and try again.";
+                tdNullView.CommonButtons = TaskDialogCommonButtons.Close;
+
+                TaskDialogResult tdNullViewRes = tdNullView.Show();
+
+                return Result.Failed;
+            }
+
 
             uidoc.ActiveView = curView;
 
