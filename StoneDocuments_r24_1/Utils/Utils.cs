@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace StoneDocuments_r24_1
 {
@@ -266,9 +267,20 @@ namespace StoneDocuments_r24_1
             return null;
         }
 
-        static bool SheetHasSchedule(Document curDoc)
+        static bool SheetHasSchedule(Document curDoc, ViewSheet curSheet)
         {
+            // get schedule from sheet
+            List<ViewSchedule> schedList = Utils.GetAllSchedulesOnSheet(curDoc, curSheet);
 
+            // check if sheet has schedule
+            if (schedList.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         #endregion
