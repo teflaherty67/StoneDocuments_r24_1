@@ -34,15 +34,15 @@ namespace StoneDocuments_r24_1
             List<ViewSchedule> schedList = Utils.GetAllSchedulesOnSheet(curDoc, curSheet);
             viewSheetSched = new ObservableCollection<ViewSchedule>(schedList);
 
-            // check if sheet has schedule
-            if (schedList.Count == 0)
-            {
-                TaskDialog.Show("Error", "The current sheet does not have a schedule. Please select another sheet.");
-            }
-            else
-            {
+            //// check if sheet has schedule
+            //if (schedList.Count == 0)
+            //{
+            //    TaskDialog.Show("Error", "The current sheet does not have a schedule. Please select another sheet.");
+            //}
+            //else
+            //{
 
-            }
+            //}
         }
 
         internal void Run(ViewSchedule curSched, ViewSchedule newSched)

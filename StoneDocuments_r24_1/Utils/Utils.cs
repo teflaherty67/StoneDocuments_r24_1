@@ -267,7 +267,7 @@ namespace StoneDocuments_r24_1
             return null;
         }
 
-        static bool SheetHasSchedule(Document curDoc, ViewSheet curSheet)
+        internal static bool SheetHasSchedule(Document curDoc, ViewSheet curSheet)
         {
             // get schedule from sheet
             List<ViewSchedule> schedList = Utils.GetAllSchedulesOnSheet(curDoc, curSheet);

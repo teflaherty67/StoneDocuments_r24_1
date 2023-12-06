@@ -39,7 +39,13 @@ namespace StoneDocuments_r24_1
                 return Result.Failed;
             }
 
+            curSheet = curDoc.ActiveView as ViewSheet;
 
+            if (Utils.SheetHasSchedule(curDoc, curSheet) == false)
+            {
+                TaskDialog.Show("Error", "The current sheet does not have a schedule. Please select another sheet.");
+                return Result.Failed;
+            }
 
             // open form
             frmScheduleSwap curForm = new frmScheduleSwap(uiapp)
