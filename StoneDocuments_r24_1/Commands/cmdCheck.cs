@@ -52,6 +52,12 @@ namespace StoneDocuments_r24_1
 
             // get elements from schedule
             List<Element> elemList = Utils.GetElementsFromSchedule(doc, schedList[0]);
+
+            if (elemList.Contains(BuiltInCategory.OST_Assemblies)==true)
+            {
+                // do some stuff
+            }
+
             List<ElementId> elemIdList = Utils.GetElementIdsFromList(doc, elemList);
 
             string userName = uiapp.Application.Username;
@@ -131,7 +137,7 @@ namespace StoneDocuments_r24_1
             // update element overrides in view
             using (Transaction t = new Transaction(doc))
             {
-                t.Start("Set element color");
+                t.Start("Set element color");                
 
                 foreach (ElementId curId in selElements)
                 {
@@ -176,3 +182,4 @@ namespace StoneDocuments_r24_1
         }
     }
 }
+
