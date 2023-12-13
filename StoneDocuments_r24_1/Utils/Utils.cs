@@ -296,12 +296,15 @@ namespace StoneDocuments_r24_1
                 m_listAsembly.Add(curAsm);
             }
 
-            if (m_listAsembly.Count>0)
-            { 
+            if (m_listAsembly.Count > 0)
+            {
                 return true;
             }
             else
-            return false;
+            {
+                return false;
+            }
+        }
 
         #endregion
 
