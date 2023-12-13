@@ -289,14 +289,7 @@ namespace StoneDocuments_r24_1
             FilteredElementCollector m_colAssembly = new FilteredElementCollector(doc, curView.Id)
                 .OfCategory(BuiltInCategory.OST_Assemblies);
 
-            List<Assembly> m_listAsembly = new List<Assembly>();
-
-            foreach (Assembly curAsm in m_colAssembly)
-            {
-                m_listAsembly.Add(curAsm);
-            }
-
-            if (m_listAsembly.Count > 0)
+            if (m_colAssembly.Count() > 0)
             {
                 return true;
             }
