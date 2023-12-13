@@ -3,6 +3,7 @@ using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -288,7 +289,14 @@ namespace StoneDocuments_r24_1
             FilteredElementCollector m_colAssembly = new FilteredElementCollector(doc, curView.Id)
                 .OfCategory(BuiltInCategory.OST_Assemblies);
 
-            if (m_colAssembly.Count > 0)
+            List<Assembly> m_listAsembly = new List<Assembly>();
+
+            foreach (Assembly curAsm in m_colAssembly)
+            {
+                m_listAsembly.Add(curAsm);
+            }
+
+            if (m_listAsembly.Count>0)
             { 
                 return true;
             }
