@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization.Formatters;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 #endregion
@@ -51,6 +52,10 @@ namespace StoneDocuments_r24_1
             }
 
             // get elements from schedule
+            if (Utils.DoesScheduleContainAssemblies(doc, schedList[0]) = true)
+            {
+                // do some stuff
+            }
             List<Element> elemList = Utils.GetElementsFromSchedule(doc, schedList[0]);
             List<ElementId> elemIdList = Utils.GetElementIdsFromList(doc, elemList);
 
@@ -132,6 +137,8 @@ namespace StoneDocuments_r24_1
             using (Transaction t = new Transaction(doc))
             {
                 t.Start("Set element color");
+
+                
 
                 foreach (ElementId curId in selElements)
                 {
