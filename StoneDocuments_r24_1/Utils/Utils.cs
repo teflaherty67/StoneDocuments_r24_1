@@ -283,6 +283,18 @@ namespace StoneDocuments_r24_1
             }
         }
 
+        internal static bool DoesScheduleContainAssemblies(Document doc, ViewSchedule curView)
+        {
+            FilteredElementCollector m_colAssembly = new FilteredElementCollector(doc, curView.Id)
+                .OfCategory(BuiltInCategory.OST_Assemblies);
+
+            if (m_colAssembly.Count > 0)
+            { 
+                return true;
+            }
+            else
+            return false;
+
         #endregion
 
         #region Sheets       
