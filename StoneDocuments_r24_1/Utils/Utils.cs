@@ -3,6 +3,7 @@ using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -280,6 +281,21 @@ namespace StoneDocuments_r24_1
             else
             {
                 return true;
+            }
+        }
+
+        internal static bool DoesScheduleContainAssemblies(Document doc, ViewSchedule curView)
+        {
+            FilteredElementCollector m_colAssembly = new FilteredElementCollector(doc, curView.Id)
+                .OfCategory(BuiltInCategory.OST_Assemblies);
+
+            if (m_colAssembly.Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
