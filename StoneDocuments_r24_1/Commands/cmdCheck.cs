@@ -52,19 +52,24 @@ namespace StoneDocuments_r24_1
             }
 
             // get elements from schedule
-            if (Utils.DoesScheduleContainAssemblies(doc, schedList[0]) = true)
-            {
-                // do some stuff
-            }
             List<Element> elemList = Utils.GetElementsFromSchedule(doc, schedList[0]);
+            List<ElementId> elemIdList = new List<ElementId>();
 
-            if (elemList.Contains(BuiltInCategory.OST_Assemblies)==true)
+            if (Utils.DoesElementListContainAssemblies(doc, elemList) == true)
             {
-                // do some stuff
+                // loop through each assemebly instance in the list
+                foreach (AssemblyInstance curAssembly in elemList)
+                {
+                    List<ElementId> curAsmId = curAssembly.GetMemberIds().ToList();
+                    elemIdList.AddRange(curAsmId);
+                }
+                // get the element Ids of the assembly members
             }
-
-            List<ElementId> elemIdList = Utils.GetElementIdsFromList(doc, elemList);
-
+            else
+            {
+                elemIdList = Utils.GetElementIdsFromList(doc, elemList);
+            }        
+            
             string userName = uiapp.Application.Username;
 
             // set current view to 3D view
@@ -142,9 +147,7 @@ namespace StoneDocuments_r24_1
             // update element overrides in view
             using (Transaction t = new Transaction(doc))
             {
-                t.Start("Set element color");                
-
-                
+                t.Start("Set element color");          
 
                 foreach (ElementId curId in selElements)
                 {

@@ -48,6 +48,7 @@ namespace StoneDocuments_r24_1
             List<BuiltInCategory> builtInCats = new List<BuiltInCategory>();
             builtInCats.Add(BuiltInCategory.OST_Parts);
             builtInCats.Add(BuiltInCategory.OST_GenericModel);
+            builtInCats.Add(BuiltInCategory.OST_Assemblies);
 
             ElementMulticategoryFilter filter1 = new ElementMulticategoryFilter(builtInCats);
             finalCollector.WherePasses(filter1);
@@ -63,6 +64,19 @@ namespace StoneDocuments_r24_1
             curFPE = FillPatternElement.GetFillPatternElementByName(doc, FillPatternTarget.Drafting, name);
 
             return curFPE;
+        }
+
+
+        internal static bool DoesElementListContainAssemblies(Document doc, List<Element> elemList)
+        {
+            if (elemList.Contains(BuiltInCategory.OST_Assemblies))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         #endregion
@@ -410,7 +424,8 @@ namespace StoneDocuments_r24_1
             }
 
             return m_returnList;
-        }     
+        }
+
 
         #endregion
     }
