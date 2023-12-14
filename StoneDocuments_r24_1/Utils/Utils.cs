@@ -69,14 +69,12 @@ namespace StoneDocuments_r24_1
 
         internal static bool DoesElementListContainAssemblies(Document doc, List<Element> elemList)
         {
-            if (elemList.Contains(BuiltInCategory.OST_Assemblies))
+            foreach(Element curElem in elemList)
             {
-                return true;
+                if (curElem is AssemblyInstance)
+                    return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         #endregion

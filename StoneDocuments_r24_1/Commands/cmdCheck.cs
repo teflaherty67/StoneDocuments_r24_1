@@ -53,7 +53,7 @@ namespace StoneDocuments_r24_1
 
             // get elements from schedule
             List<Element> elemList = Utils.GetElementsFromSchedule(doc, schedList[0]);
-            List<ElementId> elemIdList = new List<ElementId>();
+            List<ElementId> elemIdList = new List<ElementId>();            
 
             if (Utils.DoesElementListContainAssemblies(doc, elemList) == true)
             {
