@@ -42,16 +42,20 @@ namespace StoneDocuments_r24_1
 
         internal static List<Element> GetElementsFromView(Document doc, View curView)
         {
+            FilteredElementCollector finalCollector = new FilteredElementCollector(doc, curView.Id)
+                .OfClass(typeof(AssemblyInstance));
+
+
             IList<Element> elements = new List<Element>();
-            FilteredElementCollector finalCollector = new FilteredElementCollector(doc, curView.Id);
+            //FilteredElementCollector finalCollector = new FilteredElementCollector(doc, curView.Id);
 
-            List<BuiltInCategory> builtInCats = new List<BuiltInCategory>();
-            builtInCats.Add(BuiltInCategory.OST_Parts);
-            builtInCats.Add(BuiltInCategory.OST_GenericModel);
-            builtInCats.Add(BuiltInCategory.OST_Assemblies);
+            //List<BuiltInCategory> builtInCats = new List<BuiltInCategory>();
+            //builtInCats.Add(BuiltInCategory.OST_Parts);
+            //builtInCats.Add(BuiltInCategory.OST_GenericModel);
+            //builtInCats.Add(BuiltInCategory.OST_Assemblies);
 
-            ElementMulticategoryFilter filter1 = new ElementMulticategoryFilter(builtInCats);
-            finalCollector.WherePasses(filter1);
+            //ElementMulticategoryFilter filter1 = new ElementMulticategoryFilter(builtInCats);
+            //finalCollector.WherePasses(filter1);
             elements = finalCollector.ToElements();
 
             return finalCollector.ToElements() as List<Element>;
