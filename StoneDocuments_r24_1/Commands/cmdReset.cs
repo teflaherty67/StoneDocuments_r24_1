@@ -26,10 +26,15 @@ namespace StoneDocuments_r24_1
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
 
+            string userName = uiapp.Application.Username;
+
             // set current view to 3D view
             View curView;
-            curView = Utils.GetViewByName(doc, "{3D}");
-            uidoc.ActiveView = curView;
+
+            if (doc.IsWorkshared == true)
+                curView = Utils.GetViewByName(doc, "{3D - " + userName + "}");
+            else
+                curView = Utils.GetViewByName(doc, "{3D}");
 
             // get all elements in view
             List<Element> viewElements = Utils.GetElementsFromView(doc, curView);
